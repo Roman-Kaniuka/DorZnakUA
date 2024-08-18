@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DorZnakUA.Api", "DorZnakUA.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DorZnakUA.Domain", "DorZnakUA.Domain\DorZnakUA.Domain.csproj", "{2133E66D-4FDF-41F1-9F5F-7301D608866A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DorZnakUA.DAL", "DorZnakUA.DAL\DorZnakUA.DAL.csproj", "{A5CBEF8B-8E2D-44BD-B21A-C1CA72C49329}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6D678CDE-F339-4C30-A23D-0C00104EF0DE} = {49942220-6FE5-41A7-B19D-3FDCFD91B38A}
 		{2133E66D-4FDF-41F1-9F5F-7301D608866A} = {275D9D91-E051-4375-937E-E75AF99D34C6}
+		{A5CBEF8B-8E2D-44BD-B21A-C1CA72C49329} = {E33D44DA-D800-4D98-916B-3CCE107BCCE1}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6D678CDE-F339-4C30-A23D-0C00104EF0DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -28,5 +31,9 @@ Global
 		{2133E66D-4FDF-41F1-9F5F-7301D608866A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2133E66D-4FDF-41F1-9F5F-7301D608866A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2133E66D-4FDF-41F1-9F5F-7301D608866A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5CBEF8B-8E2D-44BD-B21A-C1CA72C49329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5CBEF8B-8E2D-44BD-B21A-C1CA72C49329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5CBEF8B-8E2D-44BD-B21A-C1CA72C49329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5CBEF8B-8E2D-44BD-B21A-C1CA72C49329}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
