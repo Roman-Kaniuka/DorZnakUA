@@ -1,4 +1,5 @@
 using System.Reflection;
+using DorZnakUA.DAL.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
 namespace DorZnakUA.DAL;
@@ -17,6 +18,7 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        base.OnConfiguring(optionsBuilder);
+        optionsBuilder.AddInterceptors(new DateInterceptor());
+        
     }
 }

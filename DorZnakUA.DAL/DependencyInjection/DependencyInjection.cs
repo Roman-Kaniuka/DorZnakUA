@@ -1,3 +1,4 @@
+using DorZnakUA.DAL.Interceptors;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,10 +11,10 @@ public static class DependencyInjection
     {
         var connectionString = configuration.GetConnectionString("PostgresSQL");
 
+        service.AddSingleton<DateInterceptor>();
         service.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseNpgsql(connectionString);
         });
     }
-    
 }
