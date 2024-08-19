@@ -10,7 +10,7 @@ namespace Domain.DorZnakUA.Interfaces.Services;
 public interface IProjectService
 {
     /// <summary>
-    /// Отримання всіх проэктів користувача
+    /// Отримання всіх проєктів користувача
     /// </summary>
     /// <param name="userId"></param>
     /// <returns></returns>

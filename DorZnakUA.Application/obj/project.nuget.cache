@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Am1nqHDvTZC3GhD6wJ/EiiZ/qg1JwgAzGhqrkHS+MK/fv3M10HXxs7jeSSqkXAEeoc89VRH95Hq2kvKh+m9LVQ==",
+  "dgSpecHash": "SxIaVENB2/pACfKGnfMSgJ6K74V7w/C32P0shx74GPgZ21RtS84CbkeMZBtWeDk5o/lrrAiPyBv0dxP3gHW2jg==",
   "success": true,
   "projectFilePath": "I:\\Р\\C#\\myProjecks\\DorZnakUA\\DorZnakUA.Application\\DorZnakUA.Application.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,8 @@
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
-    "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+    "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\serilog\\4.0.1\\serilog.4.0.1.nupkg.sha512"
   ],
   "logs": []
 }
