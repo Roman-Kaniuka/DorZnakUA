@@ -15,4 +15,18 @@ public interface IProjectService
     /// <param name="userId"></param>
     /// <returns></returns>
     Task<CollectionResult<ProjectDto>> GetProjectsAsync(long userId);
+
+    /// <summary>
+    /// Отримання одного проєкту по ідентифікатору
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    Task<BaseResult<ProjectDto>> GetProjectByIdAsync(long id);
+
+    //// <summary>
+    /// Створення проєкту з базовими параметрами
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    Task<BaseResult<ProjectDto>> CreateProjectAsync(CreateProjectDto dto);
 }

@@ -1,9 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "SxIaVENB2/pACfKGnfMSgJ6K74V7w/C32P0shx74GPgZ21RtS84CbkeMZBtWeDk5o/lrrAiPyBv0dxP3gHW2jg==",
+  "dgSpecHash": "SAwc8f/UnukVYqC6WE61LwihKofDWNVLE+18RrYPSbSFvp81SFeFQqZxW8hzZMbgxYXwumB7BEljoJYjMg9AUA==",
   "success": true,
   "projectFilePath": "I:\\Р\\C#\\myProjecks\\DorZnakUA\\DorZnakUA.Application\\DorZnakUA.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kaniu\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.2\\fluentvalidation.dependencyinjectionextensions.11.9.2.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0\\microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0\\microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0\\microsoft.entityframeworkcore.analyzers.8.0.0.nupkg.sha512",

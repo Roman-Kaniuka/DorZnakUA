@@ -17,4 +17,13 @@
     <data name="ProjectsNotFound" xml:space="preserve">
         <value>Projects not found</value>
     </data>
+    <data name="ProjectNotFound" xml:space="preserve">
+        <value>Project not found</value>
+    </data>
+    <data name="ProjectAlreadyExists" xml:space="preserve">
+        <value>Project already exists</value>
+    </data>
+    <data name="UserNotFound" xml:space="preserve">
+        <value>User not found</value>
+    </data>
 </root>

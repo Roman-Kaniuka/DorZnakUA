@@ -24,4 +24,17 @@
     <data name="ProjectsNotFound" xml:space="preserve">
         <value>Проєкти не знайдені</value>
     </data>
+    <data name="ProjectNotFound" xml:space="preserve">
+        <value>Проєкт не знайдено</value>
+    </data>
+    <data name="RoleAlreadyExists" xml:space="preserve">
+        <value />
+    </data>
+    <data name="ProjectAlreadyExists" xml:space="preserve">
+        <value>Проєкт з такою назвою вже існує</value>
+    </data>
+    <data name="UserNotFound" xml:space="preserve">
+        <value>
+Користувач не був знайдений</value>
+    </data>
 </root>
