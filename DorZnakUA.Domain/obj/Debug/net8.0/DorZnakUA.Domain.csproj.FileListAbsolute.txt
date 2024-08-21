@@ -1,0 +1,12 @@
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\bin\Debug\net8.0\DorZnakUA.Domain.deps.json
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\bin\Debug\net8.0\DorZnakUA.Domain.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\bin\Debug\net8.0\DorZnakUA.Domain.pdb
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain.GeneratedMSBuildEditorConfig.editorconfig
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain.AssemblyInfoInputs.cache
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain.AssemblyInfo.cs
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain.csproj.CoreCompileInputs.cache
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain.sourcelink.json
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\refint\DorZnakUA.Domain.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain.pdb
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\ref\DorZnakUA.Domain.dll

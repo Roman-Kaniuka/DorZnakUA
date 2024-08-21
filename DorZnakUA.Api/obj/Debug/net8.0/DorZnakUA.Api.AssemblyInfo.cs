@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DorZnakUA.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f426cce0021ad97db05be5d7b21848c539efdff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae210d5547cc2997aa5aa3b92c1e812866ba0b40")]
 [assembly: System.Reflection.AssemblyProductAttribute("DorZnakUA.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DorZnakUA.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

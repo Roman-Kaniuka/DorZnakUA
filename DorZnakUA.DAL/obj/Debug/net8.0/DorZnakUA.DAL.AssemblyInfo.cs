@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DorZnakUA.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57cfec91ca114eed7d7f8315bd2cd5645d709d38")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae210d5547cc2997aa5aa3b92c1e812866ba0b40")]
 [assembly: System.Reflection.AssemblyProductAttribute("DorZnakUA.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DorZnakUA.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
