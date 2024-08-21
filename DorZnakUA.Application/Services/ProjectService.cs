@@ -13,7 +13,7 @@ using Serilog;
 
 namespace DorZnakUA.Application.Services;
 
-public class ProjectServices : IProjectService
+public class ProjectService : IProjectService
 {
     private readonly IBaseRepository<Project> _projectRepository;
     private readonly IBaseRepository<User> _userRepository;
@@ -21,7 +21,7 @@ public class ProjectServices : IProjectService
     private readonly ILogger _logger;
     private readonly IMapper _mapper;
 
-    public ProjectServices(IBaseRepository<Project> projectRepository, IBaseRepository<User> userRepository, 
+    public ProjectService(IBaseRepository<Project> projectRepository, IBaseRepository<User> userRepository, 
         ILogger logger, IProjectValidator projectValidator, IMapper mapper)
     {
         _projectRepository = projectRepository;
