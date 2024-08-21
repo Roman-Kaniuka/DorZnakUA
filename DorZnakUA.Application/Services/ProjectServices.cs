@@ -112,7 +112,6 @@ public class ProjectServices : IProjectService
     /// <inheritdoc/>
     public async Task<BaseResult<ProjectDto>> CreateProjectAsync(CreateProjectDto dto)
     {
-        
         try
         {
             var project = await _projectRepository
@@ -148,6 +147,85 @@ public class ProjectServices : IProjectService
             };
         }
         
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+            return new BaseResult<ProjectDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int)ErrorCodes.ProjectsNotFound,
+            };
+        }
+    }
+
+    /// <inheritdoc/>
+    public async Task<BaseResult<ProjectDto>> DeleteProject(long id)
+    {
+        try
+        {
+            var project = await _projectRepository
+                .GetAll()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            var result = _projectValidator.ValidateOnNull(project);
+            
+            if (!result.IsSeccess)
+            {
+                return new BaseResult<ProjectDto>()
+                {
+                    ErrorMessage = ErrorMessage.ProjectNotFound,
+                    ErroreCode = (int) ErrorCodes.ProjectNotFound,
+                };
+            }
+            _projectRepository.Remove(project);
+            await _userRepository.SaveChangesAsync();
+
+            return new BaseResult<ProjectDto>()
+            {
+                Date = _mapper.Map<ProjectDto>(project),
+            };
+        }
+        
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+            return new BaseResult<ProjectDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int)ErrorCodes.ProjectsNotFound,
+            };
+        }
+    }
+
+    public async Task<BaseResult<ProjectDto>> UpdateProject(UpdateProjectDto dto)
+    {
+        try
+        {
+            var project = await _projectRepository
+                .GetAll()
+                .FirstOrDefaultAsync(x => x.Id == dto.Id);
+            
+            var result = _projectValidator.ValidateOnNull(project);
+
+            if (!result.IsSeccess)
+            {
+                return new BaseResult<ProjectDto>()
+                {
+                    ErrorMessage = ErrorMessage.ProjectNotFound,
+                    ErroreCode = (int) ErrorCodes.ProjectNotFound,
+                };
+            }
+
+            project.Name = dto.Name;
+            project.Description = dto.Description;
+
+            var updateProject = _projectRepository.Update(project);
+
+            return new BaseResult<ProjectDto>()
+            {
+                Date = _mapper.Map<ProjectDto>(updateProject)
+            };
+        }
         catch (Exception e)
         {
             _logger.Error(e, e.Message);

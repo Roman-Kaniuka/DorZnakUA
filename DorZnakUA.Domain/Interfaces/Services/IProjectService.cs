@@ -29,4 +29,19 @@ public interface IProjectService
     /// <param name="dto"></param>
     /// <returns></returns>
     Task<BaseResult<ProjectDto>> CreateProjectAsync(CreateProjectDto dto);
+
+    /// <summary>
+    /// Видаляє проєкт по вказаному id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    Task<BaseResult<ProjectDto>> DeleteProject(long id);
+    
+    /// <summary>
+    /// Оновлює дані проєкту
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <returns></returns>
+    Task<BaseResult<ProjectDto>> UpdateProject(UpdateProjectDto dto);
+    
 }
