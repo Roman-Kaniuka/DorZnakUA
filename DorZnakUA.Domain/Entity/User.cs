@@ -11,6 +11,6 @@ public class User : IEntityId<long>, IAuditable
     public List<Project> Projects { get; set; }
 
     public DateTime CreateAt { get; set; }
-    public DateTime UpdateAt { get; set; }
-    public long CreateBy { get; set; }
+    public DateTime? UpdateAt { get; set; }
+    public long? CreateBy { get; set; }
 }

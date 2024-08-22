@@ -73,40 +73,41 @@ public class ProjectService : IProjectService
     }
 
     /// <inheritdoc/>
-    public async Task<BaseResult<ProjectDto>> GetProjectByIdAsync(long id)
+    public Task<BaseResult<ProjectDto>> GetProjectByIdAsync(long id)
     {
         ProjectDto? projectDto;
         try
         {
-            projectDto = await _projectRepository
+            projectDto = _projectRepository
                 .GetAll()
+                .AsEnumerable()
                 .Select(x => new ProjectDto(x.Id, x.Name, x.Description, x.CreateAt.ToLongDateString()))
-                .FirstOrDefaultAsync(x => x.Id == id);
+                .FirstOrDefault(x => x.Id == id);
         }
         catch (Exception e)
         {
             _logger.Error(e, e.Message);
-            return new BaseResult<ProjectDto>()
+            return Task.FromResult(new BaseResult<ProjectDto>()
             {
                 ErrorMessage = ErrorMessage.InternalServerError,
                 ErroreCode = (int)ErrorCodes.ProjectsNotFound,
-            };
+            });
         }
 
         if (projectDto==null)
         {
             _logger.Warning($"Проєкт з {id} не був знайдений",id);
-            return new BaseResult<ProjectDto>()
+            return Task.FromResult(new BaseResult<ProjectDto>()
             {
                 ErrorMessage = ErrorMessage.ProjectNotFound,
                 ErroreCode = (int)ErrorCodes.ProjectNotFound,
-            };
+            });
         }
 
-        return new BaseResult<ProjectDto>()
+        return Task.FromResult(new BaseResult<ProjectDto>()
         {
             Date = projectDto,
-        };
+        });
     }
 
     /// <inheritdoc/>
