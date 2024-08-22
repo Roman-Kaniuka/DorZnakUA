@@ -221,6 +221,7 @@ public class ProjectService : IProjectService
             project.Description = dto.Description;
 
             var updateProject = _projectRepository.Update(project);
+            await _projectRepository.SaveChangesAsync();
 
             return new BaseResult<ProjectDto>()
             {

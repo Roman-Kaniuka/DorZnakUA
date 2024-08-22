@@ -16,5 +16,24 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .WithOne(x => x.User)
             .HasForeignKey(x => x.UserId)
             .HasPrincipalKey(x => x.Id);
+        
+        //тимчасовий код для заповнення таблці
+        builder.HasData(new List<User>()
+        {
+            new User()
+            {
+                Id = 1,
+                Login = "Roma",
+                Password = "qwerty",
+                CreateAt = DateTime.UtcNow
+            },
+            new User()
+            {
+                Id = 2,
+                Login = "Dima",
+                Password = "kamykadze",
+                CreateAt = DateTime.UtcNow
+            },
+        });
     }
 }
