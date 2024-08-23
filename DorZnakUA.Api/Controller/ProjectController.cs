@@ -22,10 +22,19 @@ public class ProjectController : ControllerBase
     }
 
     /// <summary>
-    /// Отримання проєкт за id
+    /// Отримання проєкта по id
     /// </summary>
     /// <param name="id"></param>
-    /// <returns></returns>
+    /// <remarks>
+    /// Sample request to get a project by id:
+    /// 
+    ///     GET
+    ///     {
+    ///         "id": "1"
+    ///     }
+    /// </remarks>
+    /// <response code="200">Якщо проєкт було знайдено по id</response>
+    /// <response code="400">Якщо проєкт не було знайдено по id</response>
     
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -41,6 +50,20 @@ public class ProjectController : ControllerBase
         return BadRequest(response);
     }
 
+    /// <summary>
+    /// Отримання проєкта користувача за userId
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <remarks>
+    /// Sample request:
+    /// 
+    ///     GET
+    ///     {
+    ///         "userId": "1"
+    ///     }
+    /// </remarks>
+    /// <response code="200">Якщо проєкт було знайдено по userId</response>
+    /// <response code="400">Якщо проєкт не було знайдено по userId</response>
     [HttpGet("projects/{userId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -55,6 +78,20 @@ public class ProjectController : ControllerBase
         return BadRequest(response);
     }
 
+    /// <summary>
+    /// Видалення проєкту по id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <remarks>
+    /// Sample request to delete a project by id:
+    /// 
+    ///     DELTE
+    ///     {
+    ///         "id": "1"
+    ///     }
+    /// </remarks>
+    /// <response code="200">Якщо проєкт було видалено по вказаному id</response>
+    /// <response code="400">Якщо проєкт не було видалено по вказаному id</response>
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -69,6 +106,22 @@ public class ProjectController : ControllerBase
         return BadRequest(response);
     }
 
+    /// <summary>
+    /// Створення нового проєкта
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <remarks>
+    /// Sample request to create new project:
+    /// 
+    ///     POST
+    ///     {
+    ///         "name": "Project #55",
+    ///         "description": "Test project",
+    ///         "userId": "1"
+    ///     }
+    /// </remarks>
+    /// <response code="200">Якщо проєкт був створений</response>
+    /// <response code="400">Якщо проєкт не був створений</response>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -83,6 +136,22 @@ public class ProjectController : ControllerBase
         return BadRequest(response);
     }
 
+    /// <summary>
+    /// Оновлення проєкту по id
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <remarks>
+    /// Sample request to update a project by id:
+    /// 
+    ///     PUT
+    ///     {
+    ///         "id": "1",
+    ///         "name": "Report #1",
+    ///         "description": "Test report"
+    ///     }
+    /// </remarks>
+    /// <response code="200">Якщо проєкт було оновлено по id</response>
+    /// <response code="400">Якщо проєкт не було оновлено по id</response>
     [HttpPut]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

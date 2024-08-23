@@ -60,3 +60,9 @@ I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\obj\Debug\net8.0\refint\DorZnakUA.Ap
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\obj\Debug\net8.0\DorZnakUA.Api.pdb
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\obj\Debug\net8.0\DorZnakUA.Api.genruntimeconfig.cache
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\obj\Debug\net8.0\ref\DorZnakUA.Api.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Asp.Versioning.Abstractions.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Asp.Versioning.Http.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Asp.Versioning.Mvc.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Asp.Versioning.Mvc.ApiExplorer.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\DorZnakUA.Api.xml
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\obj\Debug\net8.0\DorZnakUA.Api.xml
