@@ -1,3 +1,4 @@
+using DorZnakUA.Api;
 using DorZnakUA.Application.DependencyInjection;
 using DorZnakUA.DAL.DependencyInjection;
 using Serilog;
@@ -5,9 +6,7 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwagger();
 
 builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 
@@ -19,7 +18,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "DorZnakUA Swagger v1.0");
+        c.SwaggerEndpoint("/swagger/v2/swagger.json", "DorZnakUA Swagger v2.0");
+        /*c.RoutePrefix = string.Empty;*/
+    });
 }
 
 app.UseHttpsRedirection();

@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using Domain.DorZnakUA.Dto.Project;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
@@ -9,7 +10,8 @@ namespace DorZnakUA.Api.Controller;
 
 //[Authorize]
 [ApiController]
-[Route("api/v1/[controller]")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class ProjectController : ControllerBase
 {
     private readonly IProjectService _projectService;

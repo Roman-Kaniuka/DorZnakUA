@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "MA20Mjj+mrDGoyTWNqjfYrPhzorSffWH8HC6H6O01mn8skV7Fm3+9fHrmxILZZx1j439L9r/lH/2MsJqMcbmug==",
+  "dgSpecHash": "K1SFGDTJhtwJUDnuoLenygGtdxBIm7O59TKlBTlqhITjjMHBp88Nny+ePBWyoz/9fxdSG7DGAHMDYrwyuivjaQ==",
   "success": true,
   "projectFilePath": "I:\\Р\\C#\\myProjecks\\DorZnakUA\\DorZnakUA.Api\\DorZnakUA.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kaniu\\.nuget\\packages\\asp.versioning.abstractions\\8.0.0\\asp.versioning.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\asp.versioning.http\\8.0.0\\asp.versioning.http.8.0.0.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\asp.versioning.mvc\\8.0.0\\asp.versioning.mvc.8.0.0.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\asp.versioning.mvc.apiexplorer\\8.0.0\\asp.versioning.mvc.apiexplorer.8.0.0.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
