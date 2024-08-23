@@ -94,5 +94,12 @@
             </summary>
             <param name="services"></param>
         </member>
+        <member name="M:DorZnakUA.Api.Startup.AddAuthenticationAndAuthorization(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+            Підключення аутентифікації та авторизації
+            </summary>
+            <param name="services"></param>
+            <param name="builder"></param>
+        </member>
     </members>
 </doc>

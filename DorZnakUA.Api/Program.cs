@@ -1,3 +1,4 @@
+using Domain.DorZnakUA.Settings;
 using DorZnakUA.Api;
 using DorZnakUA.Application.DependencyInjection;
 using DorZnakUA.DAL.DependencyInjection;
@@ -5,8 +6,11 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection(JwtSettings.DefaultSection));
+
 builder.Services.AddControllers();
 builder.Services.AddSwagger();
+builder.Services.AddAuthenticationAndAuthorization(builder);
 
 builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 

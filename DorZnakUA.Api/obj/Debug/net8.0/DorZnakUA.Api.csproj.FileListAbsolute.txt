@@ -66,3 +66,11 @@ I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Asp.Versioning.Mvc.
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Asp.Versioning.Mvc.ApiExplorer.dll
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\DorZnakUA.Api.xml
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\obj\Debug\net8.0\DorZnakUA.Api.xml
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
