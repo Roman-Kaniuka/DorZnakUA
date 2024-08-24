@@ -198,6 +198,7 @@ public class ProjectService : IProjectService
         }
     }
 
+    /// <inheritdoc/>
     public async Task<BaseResult<ProjectDto>> UpdateProject(UpdateProjectDto dto)
     {
         try

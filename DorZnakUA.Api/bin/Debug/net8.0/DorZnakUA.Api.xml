@@ -4,6 +4,44 @@
         <name>DorZnakUA.Api</name>
     </assembly>
     <members>
+        <member name="M:DorZnakUA.Api.Controller.AuthController.Register(Domain.DorZnakUA.Dto.User.RegisterUserDto)">
+            <summary>
+            Реєстрація нового користувача
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+            <remarks>
+            Sample request for registration new project:
+            
+                POST
+                {
+                    "login": "Nickname",
+                    "password": "qwerty",
+                    "passwordConfirm": "qwerty"
+                }
+            </remarks>>
+            <response code="200">Якщо нового користувача було зареєстровано</response>
+            <response code="400">Якщо нового користувача не було зареєстровано</response>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.AuthController.Login(Domain.DorZnakUA.Dto.User.LoginUserDto)">
+             <summary>
+             Запит на вхід в систему
+             </summary>
+             <param name="dto"></param>
+             <returns></returns>
+             <remarks>
+            
+             Sample login request:
+             
+                 POST
+                 {
+                     "login": "Nickname",
+                     "password": "qwerty"
+                 }
+             </remarks>>
+             <response code="200">Якщо нового користувача було зареєстровано</response>
+             <response code="400">Якщо нового користувача не було зареєстровано</response>
+        </member>
         <member name="M:DorZnakUA.Api.Controller.ProjectController.GetProject(System.Int64)">
             <summary>
             Отримання проєкта по id

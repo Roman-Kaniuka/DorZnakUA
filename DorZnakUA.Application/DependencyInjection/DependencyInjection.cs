@@ -23,9 +23,11 @@ public static class DependencyInjection
     private static void InitServices(this IServiceCollection services)
     {
         services.AddScoped<IProjectService, ProjectService>();
+        services.AddScoped<IAuthService, AuthService>();
 
         services.AddScoped<IProjectValidator, ProjectValidator>();
         services.AddScoped<IValidator<CreateProjectDto>, CreateProjectValodator>();
         services.AddScoped<IValidator<UpdateProjectDto>, UpdateProjectValodator>();
+        services.AddScoped<IBaseValidator<User>, UserValidator>();
     }
 }

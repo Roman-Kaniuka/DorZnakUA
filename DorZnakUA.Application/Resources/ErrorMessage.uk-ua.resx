@@ -27,4 +27,16 @@
         <value>
 Користувач не був знайдений</value>
     </data>
+    <data name="PasswordNotEqualsPasswordConfirm" xml:space="preserve">
+        <value>Перевірочний пароль не відповідає основному паролю</value>
+    </data>
+    <data name="RoleAlreadyExists" xml:space="preserve">
+        <value>Роль з такою назвою вже існує</value>
+    </data>
+    <data name="UserAlreadyExists" xml:space="preserve">
+        <value>Користувач з таким логіном вже існує</value>
+    </data>
+    <data name="RegistrationFailed" xml:space="preserve">
+        <value>Не вдалося зареєструватися</value>
+    </data>
 </root>
