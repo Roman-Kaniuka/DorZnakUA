@@ -27,5 +27,6 @@ public static class DependencyInjection
     {
         services.AddScoped<IBaseRepository<Project>, BaseRepository<Project>>();
         services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
+        services.AddScoped<IBaseRepository<UserToken>, BaseRepository<UserToken>>();
     }
 }

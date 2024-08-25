@@ -968,7 +968,9 @@
           "DorZnakUA.Domain": "1.0.0",
           "FluentValidation.DependencyInjectionExtensions": "11.9.2",
           "Microsoft.EntityFrameworkCore": "8.0.0",
-          "Serilog": "4.0.1"
+          "Microsoft.IdentityModel.Tokens": "7.1.2",
+          "Serilog": "4.0.1",
+          "System.IdentityModel.Tokens.Jwt": "7.1.2"
         },
         "compile": {
           "bin/placeholder/DorZnakUA.Application.dll": {}

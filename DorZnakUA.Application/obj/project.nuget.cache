@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SAwc8f/UnukVYqC6WE61LwihKofDWNVLE+18RrYPSbSFvp81SFeFQqZxW8hzZMbgxYXwumB7BEljoJYjMg9AUA==",
+  "dgSpecHash": "jfNBT0oDLkzY22iKM6LRtQf5BoaZpF3A3wNwgRSTtVQYR/k4doiI2VPqzlom2SKn1g71sjtrCRcKM/JUwz8LgQ==",
   "success": true,
   "projectFilePath": "I:\\Р\\C#\\myProjecks\\DorZnakUA\\DorZnakUA.Application\\DorZnakUA.Application.csproj",
   "expectedPackageFiles": [
@@ -20,7 +20,12 @@
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "C:\\Users\\kaniu\\.nuget\\packages\\serilog\\4.0.1\\serilog.4.0.1.nupkg.sha512"
+    "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.1.2\\microsoft.identitymodel.abstractions.7.1.2.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.1.2\\microsoft.identitymodel.jsonwebtokens.7.1.2.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.identitymodel.logging\\7.1.2\\microsoft.identitymodel.logging.7.1.2.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.1.2\\microsoft.identitymodel.tokens.7.1.2.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\serilog\\4.0.1\\serilog.4.0.1.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.1.2\\system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512"
   ],
   "logs": []
 }

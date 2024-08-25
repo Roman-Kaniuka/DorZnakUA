@@ -69,6 +69,15 @@ namespace DorZnakUA.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не вірний пароль.
+        /// </summary>
+        internal static string PasswordIsWrong {
+            get {
+                return ResourceManager.GetString("PasswordIsWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Перевірочний пароль не відповідає основному паролю.
         /// </summary>
         internal static string PasswordNotEqualsPasswordConfirm {

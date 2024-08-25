@@ -39,4 +39,7 @@
     <data name="RegistrationFailed" xml:space="preserve">
         <value>Не вдалося зареєструватися</value>
     </data>
+    <data name="PasswordIsWrong" xml:space="preserve">
+        <value>Не вірний пароль</value>
+    </data>
 </root>

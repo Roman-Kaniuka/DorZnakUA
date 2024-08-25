@@ -24,6 +24,7 @@ public static class DependencyInjection
     {
         services.AddScoped<IProjectService, ProjectService>();
         services.AddScoped<IAuthService, AuthService>();
+        services.AddScoped<ITokenService, TokenService>();
 
         services.AddScoped<IProjectValidator, ProjectValidator>();
         services.AddScoped<IValidator<CreateProjectDto>, CreateProjectValodator>();

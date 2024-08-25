@@ -13,6 +13,7 @@ public enum ErrorCodes
     
     //Password 21-30
     PasswordNotEqualsPasswordConfirm = 21,
+    PasswordIsWrong = 22,
     
     //Server 31-40
     InternalServerError = 31,
