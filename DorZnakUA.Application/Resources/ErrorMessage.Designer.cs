@@ -69,6 +69,24 @@ namespace DorZnakUA.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не валідний токен.
+        /// </summary>
+        internal static string InvalidToken {
+            get {
+                return ResourceManager.GetString("InvalidToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Недійсний запит клієнта.
+        /// </summary>
+        internal static string InvslidClientRequest {
+            get {
+                return ResourceManager.GetString("InvslidClientRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Не вірний пароль.
         /// </summary>
         internal static string PasswordIsWrong {

@@ -50,11 +50,58 @@ public class TokenService : ITokenService
 
     public ClaimsPrincipal GetPrincipalFromExpiredToken(string accessToken)
     {
-        throw new NotImplementedException();
+        var tokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateAudience = true,
+            ValidateIssuer = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtKey)),
+            ValidateLifetime = true,
+            ValidAudience = _audience,
+            ValidIssuer = _issuer
+        };
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var claimsPrincipal = tokenHandler.ValidateToken(accessToken, tokenValidationParameters, out var securityToken);
+
+        if (securityToken is not JwtSecurityToken jwtSecurityToken ||
+            !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+        {
+            throw new SecurityException(ErrorMessage.InvalidToken);
+        } ;
+        return claimsPrincipal;
     }
 
-    public Task<BaseResult<TokenDto>> RefreshToken(TokenDto dto)
+    public async Task<BaseResult<TokenDto>> RefreshToken(TokenDto dto)
     {
-        throw new NotImplementedException();
+        var accessToken = dto.AccessToken;
+        var refreshToken = dto.RefreshToken;
+
+        var claimsPrincipal = GetPrincipalFromExpiredToken(accessToken);
+        var userName = claimsPrincipal.Identity?.Name;
+
+        var user = await _userRepository
+            .GetAll()
+            .Include(x => x.UserToken)
+            .FirstOrDefaultAsync(u => u.Login == userName);
+        if (user == null || user.UserToken.RefreshToken != refreshToken ||
+            user.UserToken.RefreshTokenExpiryTime <= DateTime.UtcNow)
+        {
+            return new BaseResult<TokenDto>()
+            {
+                ErrorMessage = ErrorMessage.InvslidClientRequest
+            };
+        }
+
+        var newAccessToken = GenerateAccessToken(claimsPrincipal.Claims);
+        var newRefreshToken = GenerateRefreshToken();
+
+        user.UserToken.RefreshToken = newRefreshToken;
+        _userRepository.Update(user);
+        await _userRepository.SaveChangesAsync();
+
+        return new BaseResult<TokenDto>()
+        {
+            Date = new TokenDto(newAccessToken, newRefreshToken)
+        };
     }
 }

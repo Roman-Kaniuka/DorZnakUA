@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DorZnakUA.Api.Controller;
 
+/// <summary>
+/// Сервіс для реєстрації та входу в систему
+/// </summary>
 [ApiController]
 [Route("api/v{version:apiVersion}/[controller]")]
 public class AuthController : ControllerBase
@@ -67,7 +70,14 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<ActionResult<BaseResult<TokenDto>>> Login([FromBody]LoginUserDto dto)
     {
-        return Ok();
+        var response = await _authService.Login(dto);
+
+        if (response.IsSeccess)
+        {
+            return Ok(response);
+        }
+
+        return BadRequest(response);
     }
     
     

@@ -4,6 +4,11 @@
         <name>DorZnakUA.Api</name>
     </assembly>
     <members>
+        <member name="T:DorZnakUA.Api.Controller.AuthController">
+            <summary>
+            Сервіс для реєстрації та входу в систему
+            </summary>
+        </member>
         <member name="M:DorZnakUA.Api.Controller.AuthController.Register(Domain.DorZnakUA.Dto.User.RegisterUserDto)">
             <summary>
             Реєстрація нового користувача
@@ -41,6 +46,11 @@
              </remarks>>
              <response code="200">Якщо нового користувача було зареєстровано</response>
              <response code="400">Якщо нового користувача не було зареєстровано</response>
+        </member>
+        <member name="T:DorZnakUA.Api.Controller.ProjectController">
+            <summary>
+            Сервіс для роботи з проєктами
+            </summary>
         </member>
         <member name="M:DorZnakUA.Api.Controller.ProjectController.GetProject(System.Int64)">
             <summary>
@@ -125,6 +135,26 @@
             </remarks>
             <response code="200">Якщо проєкт було оновлено по id</response>
             <response code="400">Якщо проєкт не було оновлено по id</response>
+        </member>
+        <member name="T:DorZnakUA.Api.Controller.TokenController">
+            <summary>
+            Сервіс для роботи з токінами
+            </summary>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.TokenController.RefreshToken(Domain.DorZnakUA.Dto.Token.TokenDto)">
+            <summary>
+            Запит на отримання RefreshToken
+            </summary>
+            <param name="dto"></param>
+            <remarks>
+            A sample request for a RefreshToken:
+            
+                POST
+                {
+                    "accessToken": "AccessToken",
+                    "refreshToken": "RefreshToken",
+                }
+            </remarks>>
         </member>
         <member name="M:DorZnakUA.Api.Startup.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>

@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DorZnakUA.Api.Controller;
-
-//[Authorize]
+/// <summary>
+/// Сервіс для роботи з проєктами
+/// </summary>
+[Authorize]
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]

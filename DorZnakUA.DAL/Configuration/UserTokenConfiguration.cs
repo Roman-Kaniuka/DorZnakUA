@@ -11,5 +11,16 @@ public class UserTokenConfiguration : IEntityTypeConfiguration<UserToken>
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.RefreshToken).IsRequired();
         builder.Property(x => x.RefreshTokenExpiryTime).IsRequired();
+        
+        builder.HasData(new List<UserToken>()
+        {
+            new UserToken()
+            {
+                Id = 1,
+                RefreshToken = "dfghjkuy",
+                RefreshTokenExpiryTime = DateTime.UtcNow,
+                UserId = 1,
+            }
+        });
     }
 }

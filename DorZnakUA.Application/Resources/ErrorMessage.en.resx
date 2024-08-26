@@ -41,4 +41,10 @@
     <data name="PasswordIsWrong" xml:space="preserve">
         <value>Password is wrong</value>
     </data>
+    <data name="InvalidToken" xml:space="preserve">
+        <value>Invalid token</value>
+    </data>
+    <data name="InvslidClientRequest" xml:space="preserve">
+        <value>Invslid client request</value>
+    </data>
 </root>

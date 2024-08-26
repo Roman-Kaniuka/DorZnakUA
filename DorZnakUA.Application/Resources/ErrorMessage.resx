@@ -49,4 +49,10 @@
     <data name="PasswordIsWrong" xml:space="preserve">
         <value>Не вірний пароль</value>
     </data>
+    <data name="InvalidToken" xml:space="preserve">
+        <value>Не валідний токен</value>
+    </data>
+    <data name="InvslidClientRequest" xml:space="preserve">
+        <value>Недійсний запит клієнта</value>
+    </data>
 </root>
