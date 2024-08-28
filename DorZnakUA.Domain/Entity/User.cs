@@ -9,6 +9,7 @@ public class User : IEntityId<long>, IAuditable
     public string Password { get; set; }
     public List<Project> Projects { get; set; }
     public UserToken UserToken { get; set; }
+    public List<Role> Roles { get; set; }
     public DateTime CreateAt { get; set; }
     public DateTime? UpdateAt { get; set; }
     public long? CreateBy { get; set; }

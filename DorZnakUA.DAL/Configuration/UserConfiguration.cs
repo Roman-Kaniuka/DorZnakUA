@@ -17,6 +17,19 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasForeignKey(x => x.UserId)
             .HasPrincipalKey(x => x.Id);
         
+        builder.HasMany(x => x.Roles)
+            .WithMany(x => x.Users)
+            .UsingEntity<UserRole>(
+                i => i
+                    .HasOne<Role>()
+                    .WithMany()
+                    .HasForeignKey(x => x.RoleId),
+                i => i
+                    .HasOne<User>()
+                    .WithMany()
+                    .HasForeignKey(x => x.UserId)
+            );
+        
         //тимчасовий код для заповнення таблці
         builder.HasData(new List<User>()
         {
