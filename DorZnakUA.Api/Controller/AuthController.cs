@@ -10,7 +10,7 @@ namespace DorZnakUA.Api.Controller;
 /// Сервіс для реєстрації та входу в систему
 /// </summary>
 [ApiController]
-[Route("api/v{version:apiVersion}/[controller]")]
+[Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;

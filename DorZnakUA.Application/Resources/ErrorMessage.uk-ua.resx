@@ -48,4 +48,10 @@
     <data name="InvslidClientRequest" xml:space="preserve">
         <value>Недійсний запит клієнта</value>
     </data>
+    <data name="RoleNotFound" xml:space="preserve">
+        <value>Роль не знайдено</value>
+    </data>
+    <data name="UserAlreadyExistsThisRole" xml:space="preserve">
+        <value>Користувач з такою роллю вже існує</value>
+    </data>
 </root>

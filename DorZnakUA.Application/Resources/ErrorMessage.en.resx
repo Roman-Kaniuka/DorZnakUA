@@ -47,4 +47,10 @@
     <data name="InvslidClientRequest" xml:space="preserve">
         <value>Invslid client request</value>
     </data>
+    <data name="RoleNotFound" xml:space="preserve">
+        <value>Role not found</value>
+    </data>
+    <data name="UserAlreadyExistsThisRole" xml:space="preserve">
+        <value>User already exists this role</value>
+    </data>
 </root>

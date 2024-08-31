@@ -150,11 +150,29 @@ namespace DorZnakUA.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Роль не знайдено.
+        /// </summary>
+        internal static string RoleNotFound {
+            get {
+                return ResourceManager.GetString("RoleNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Користувач з таким логіном вже існує.
         /// </summary>
         internal static string UserAlreadyExists {
             get {
                 return ResourceManager.GetString("UserAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Користувач з такою роллю вже існує.
+        /// </summary>
+        internal static string UserAlreadyExistsThisRole {
+            get {
+                return ResourceManager.GetString("UserAlreadyExistsThisRole", resourceCulture);
             }
         }
         

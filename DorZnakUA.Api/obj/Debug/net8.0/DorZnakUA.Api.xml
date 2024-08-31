@@ -136,6 +136,112 @@
             <response code="200">Якщо проєкт було оновлено по id</response>
             <response code="400">Якщо проєкт не було оновлено по id</response>
         </member>
+        <member name="T:DorZnakUA.Api.Controller.RoleController">
+            <summary>
+            Сервіс для роботи з ролями
+            </summary>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoleController.CreateRole(Domain.DorZnakUA.Dto.Role.CreateRoleDto)">
+            <summary>
+            Створення ролі
+            </summary>
+            <param name="dto"></param>
+            <remarks>
+            Sample request:
+            
+                POST
+                {
+                    "name": "Admin",
+                }
+            </remarks>
+            <response code="200">Якщо роль було створено</response>
+            <response code="400">Якщо роль не було створено</response>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoleController.DeleteRole(System.Int64)">
+            <summary>
+            Видалення ролі по id
+            </summary>
+            <param name="id"></param>
+            <remarks>
+            Sample request:
+            
+                DELETE
+                {
+                    "id": "1"
+                }
+            </remarks>>
+            <response code="200">Якщо роль було видалено</response>
+            <response code="400">Якщо роль не було видалено</response>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoleController.UpdateRole(Domain.DorZnakUA.Dto.Role.RoleDto)">
+            <summary>
+            Оновлення ролі
+            </summary>
+            <param name="dto"></param>
+            <remarks>
+            Sample request:
+            
+                PUT
+                {
+                    "id": "1",
+                    "name": "Admin",
+                }
+            </remarks>
+            <response code="200">Якщо роль було оновлено</response>
+            <response code="400">Якщо роль не було оновлено</response>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoleController.AddRoleForUser(Domain.DorZnakUA.Dto.UserRole.UserRoleDto)">
+            <summary>
+            Присвоєння ролі користувачу
+            </summary>
+            <param name="dto"></param>
+            <remarks>
+            Sample request:
+            
+                POST
+                {
+                    "login": "User #1",
+                    "roleName": "Admin"
+                }
+            </remarks>
+            <response code="200">Якщо роль було присвоєно</response>
+            <response code="400">Якщо роль не було присвоєно</response>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoleController.DeleteRoleForUser(Domain.DorZnakUA.Dto.UserRole.DeleteUserRoleDto)">
+            <summary>
+            Видалення ролі у користувача
+            </summary>
+            <param name="dto"></param>
+            <remarks>
+            Sample request:
+            
+                DELETE
+                {
+                    "login": "User #1",
+                    "roleName": "Admin"
+                }
+            </remarks>
+            <response code="200">Якщо роль було присвоєно</response>
+            <response code="400">Якщо роль не було присвоєно</response>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoleController.UpdateRoleForUser(Domain.DorZnakUA.Dto.UserRole.UpdateUserRoleDto)">
+            <summary>
+            Оновлення ролі у користувача
+            </summary>
+            <param name="dto"></param>
+            <remarks>
+            Sample request:
+            
+                PUT
+                {
+                    "login": "User #1",
+                    "fromRoleName": "User"
+                    "toRoleName": "Admin"
+                }
+            </remarks>
+            <response code="200">Якщо роль було присвоєно</response>
+            <response code="400">Якщо роль не було присвоєно</response>
+        </member>
         <member name="T:DorZnakUA.Api.Controller.TokenController">
             <summary>
             Сервіс для роботи з токінами

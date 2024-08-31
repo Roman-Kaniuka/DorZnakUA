@@ -10,7 +10,7 @@ namespace DorZnakUA.Api.Controller;
 /// <summary>
 /// Сервіс для роботи з проєктами
 /// </summary>
-[Authorize]
+/*[Authorize]*/
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]

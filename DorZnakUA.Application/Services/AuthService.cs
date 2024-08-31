@@ -20,13 +20,16 @@ public class AuthService : IAuthService
 {
     private readonly IBaseRepository<User> _userRepository;
     private readonly IBaseValidator<User> _userValidator;
+    private readonly IBaseRepository<Role> _roleRepository;
     private readonly IBaseRepository<UserToken> _userTokenRepository;
+    private readonly IBaseRepository<UserRole> _userRoleRepository;
     private readonly ITokenService _tokenService;
     private readonly ILogger _logger;
     private readonly IMapper _mapper;
 
     public AuthService(IBaseRepository<User> userRepository, ILogger logger, IMapper mapper, 
-        IBaseValidator<User> userValidator, IBaseRepository<UserToken> userTokenRepository, ITokenService tokenService)
+        IBaseValidator<User> userValidator, IBaseRepository<UserToken> userTokenRepository, 
+        ITokenService tokenService, IBaseRepository<Role> roleRepository, IBaseRepository<UserRole> userRoleRepository)
     {
         _userRepository = userRepository;
         _logger = logger;
@@ -34,6 +37,8 @@ public class AuthService : IAuthService
         _userValidator = userValidator;
         _userTokenRepository = userTokenRepository;
         _tokenService = tokenService;
+        _roleRepository = roleRepository;
+        _userRoleRepository = userRoleRepository;
     }
 
     /// <inheritdoc/>
@@ -75,6 +80,28 @@ public class AuthService : IAuthService
             
             await _userRepository.CreateAsync(user);
             await _userRepository.SaveChangesAsync();
+            
+            var role = await _roleRepository
+                .GetAll()
+                .FirstOrDefaultAsync(r => r.Name == (nameof(Roles.User)));
+            
+            if (role == null)
+            {
+                return new BaseResult<UserDto>()
+                {
+                    ErrorMessage = ErrorMessage.RoleNotFound,
+                    ErroreCode = (int)ErrorCodes.RoleNotFound
+                };
+            }
+            
+            UserRole userRole = new UserRole()
+            {
+                UserId = user.Id,
+                RoleId = role.Id
+            };
+
+            await _userRoleRepository.CreateAsync(userRole);
+            await _userRoleRepository.SaveChangesAsync();
 
             return new BaseResult<UserDto>()
             {
@@ -100,6 +127,7 @@ public class AuthService : IAuthService
         {
             var user = await _userRepository
                 .GetAll()
+                .Include(x=>x.Roles)
                 .FirstOrDefaultAsync(x => x.Login == dto.Login);
 
             var result = _userValidator.ValidateOnNull(user);
@@ -126,12 +154,13 @@ public class AuthService : IAuthService
                 .GetAll()
                 .FirstOrDefaultAsync(x => x.UserId == user.Id);
 
-            var claims = new List<Claim>()
-            {
-                new Claim(ClaimTypes.Name, user.Login),
-                new Claim(ClaimTypes.Role, "User"),
-            };
-
+            var userRoles = user.Roles;
+            var claims = userRoles
+                .Select(x => new Claim(ClaimTypes.Role, x.Name))
+                .ToList();
+            claims
+                .Add(new Claim(ClaimTypes.Name, user.Login));
+            
             var accessToken = _tokenService.GenerateAccessToken(claims);
             var refreshToken = _tokenService.GenerateRefreshToken();
             

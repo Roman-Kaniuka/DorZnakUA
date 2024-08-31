@@ -19,4 +19,11 @@ public enum ErrorCodes
     InternalServerError = 31,
     RegistrationFailed = 32,
     
+    //Role 41-50
+    RoleAlreadyExists = 41,
+    RoleNotFound = 42,
+    
+    //UserRole 51-60
+    UserAlreadyExistsThisRole = 51
+    
 }
