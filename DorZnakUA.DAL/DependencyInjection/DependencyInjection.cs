@@ -1,5 +1,6 @@
 using Domain.DorZnakUA.Entity;
 using Domain.DorZnakUA.Interfaces.Repositories;
+using Domain.DorZnakUA.Interfaces.Repositories.DateBases;
 using DorZnakUA.DAL.Interceptors;
 using DorZnakUA.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ public static class DependencyInjection
 
     private static void InitRepositories(this IServiceCollection services)
     {
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IBaseRepository<Project>, BaseRepository<Project>>();
         services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
         services.AddScoped<IBaseRepository<UserToken>, BaseRepository<UserToken>>();

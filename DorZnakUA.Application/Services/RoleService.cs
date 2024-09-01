@@ -228,10 +228,18 @@ public class RoleService : IRoleService
     /// <inheritdoc/>
     public async Task<BaseResult<UserRoleDto>> DeleteRoleForUser(DeleteUserRoleDto dto)
     {
+        return new BaseResult<UserRoleDto>()
+        {
+
+        };
     }
 
     /// <inheritdoc/>
     public async Task<BaseResult<UserRoleDto>> UpdateRoleForUse(UpdateUserRoleDto dto)
     {
+        return new BaseResult<UserRoleDto>()
+        {
+
+        };
     }
 }

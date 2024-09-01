@@ -207,41 +207,6 @@
             <response code="200">Якщо роль було присвоєно</response>
             <response code="400">Якщо роль не було присвоєно</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoleController.DeleteRoleForUser(Domain.DorZnakUA.Dto.UserRole.DeleteUserRoleDto)">
-            <summary>
-            Видалення ролі у користувача
-            </summary>
-            <param name="dto"></param>
-            <remarks>
-            Sample request:
-            
-                DELETE
-                {
-                    "login": "User #1",
-                    "roleName": "Admin"
-                }
-            </remarks>
-            <response code="200">Якщо роль було присвоєно</response>
-            <response code="400">Якщо роль не було присвоєно</response>
-        </member>
-        <member name="M:DorZnakUA.Api.Controller.RoleController.UpdateRoleForUser(Domain.DorZnakUA.Dto.UserRole.UpdateUserRoleDto)">
-            <summary>
-            Оновлення ролі у користувача
-            </summary>
-            <param name="dto"></param>
-            <remarks>
-            Sample request:
-            
-                PUT
-                {
-                    "login": "User #1",
-                    "fromRoleName": "User"
-                    "toRoleName": "Admin"
-                }
-            </remarks>
-            <response code="200">Якщо роль було присвоєно</response>
-            <response code="400">Якщо роль не було присвоєно</response>
-        </member>
         <member name="T:DorZnakUA.Api.Controller.TokenController">
             <summary>
             Сервіс для роботи з токінами

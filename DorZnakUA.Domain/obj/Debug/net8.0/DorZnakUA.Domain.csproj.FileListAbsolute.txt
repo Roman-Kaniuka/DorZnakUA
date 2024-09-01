@@ -10,3 +10,4 @@ I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\refint\DorZnakUA.Domain.dll
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain.pdb
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\ref\DorZnakUA.Domain.dll
+I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Domain\obj\Debug\net8.0\DorZnakUA.Domain.csproj.AssemblyReference.cache
