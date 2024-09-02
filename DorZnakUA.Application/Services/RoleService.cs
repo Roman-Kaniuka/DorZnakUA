@@ -4,6 +4,7 @@ using Domain.DorZnakUA.Dto.UserRole;
 using Domain.DorZnakUA.Entity;
 using Domain.DorZnakUA.Enum;
 using Domain.DorZnakUA.Interfaces.Repositories;
+using Domain.DorZnakUA.Interfaces.Repositories.DateBases;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Interfaces.Validations;
 using Domain.DorZnakUA.Result;
@@ -15,6 +16,7 @@ namespace DorZnakUA.Application.Services;
 
 public class RoleService : IRoleService
 {
+    private readonly IUnitOfWork _unitOfWork;
     private readonly IBaseRepository<User> _userRepository;
     private readonly IBaseRepository<Role> _roleRepository;
     private readonly IBaseRepository<UserRole> _userRoleRepository;
@@ -23,7 +25,9 @@ public class RoleService : IRoleService
     private readonly IMapper _mapper;
 
 
-    public RoleService(IBaseRepository<User> userRepository, IBaseRepository<Role> roleRepository, IBaseRepository<UserRole> userRoleRepository, ILogger logger, IMapper mapper, IBaseValidator<User> userValidator)
+    public RoleService(IBaseRepository<User> userRepository, IBaseRepository<Role> roleRepository, 
+        IBaseRepository<UserRole> userRoleRepository, ILogger logger, IMapper mapper, IBaseValidator<User> userValidator, 
+        IUnitOfWork unitOfWork)
     {
         _userRepository = userRepository;
         _roleRepository = roleRepository;
@@ -31,6 +35,7 @@ public class RoleService : IRoleService
         _logger = logger;
         _mapper = mapper;
         _userValidator = userValidator;
+        _unitOfWork = unitOfWork;
     }
 
     /// <inheritdoc/>
@@ -225,21 +230,148 @@ public class RoleService : IRoleService
         }
     }
 
-    /// <inheritdoc/>
+  /// <inheritdoc/>
     public async Task<BaseResult<UserRoleDto>> DeleteRoleForUser(DeleteUserRoleDto dto)
     {
-        return new BaseResult<UserRoleDto>()
+        try
         {
+            var user = await _userRepository
+                .GetAll()
+                .Include(x=>x.Roles)
+                .FirstOrDefaultAsync(x => x.Login == dto.Login);
 
-        };
+            var result = _userValidator.ValidateOnNull(user);
+            
+            if (!result.IsSeccess)
+            {
+                return new BaseResult<UserRoleDto>()
+                {
+                    ErrorMessage = ErrorMessage.UserNotFound,
+                    ErroreCode = (int) ErrorCodes.UserNotFound,
+                };
+            }
+            
+            var role = user.Roles.FirstOrDefault(x => x.Id == dto.RoleId);
+
+            if (role==null)
+            {
+                return new BaseResult<UserRoleDto>()
+                {
+                    ErrorMessage = ErrorMessage.RoleNotFound,
+                    ErroreCode = (int)ErrorCodes.RoleNotFound,
+                };
+            }
+
+            var userRole = await _userRoleRepository
+                .GetAll()
+                .Where(x => x.RoleId == role.Id)
+                .FirstOrDefaultAsync(x => x.UserId == user.Id);
+
+            _userRoleRepository.Remove(userRole);
+            await _userRoleRepository.SaveChangesAsync();
+
+            return new BaseResult<UserRoleDto>()
+            {
+                Date = new UserRoleDto(user.Login, role.Name)
+            };
+        }
+        
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+            return new BaseResult<UserRoleDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int)ErrorCodes.ProjectsNotFound,
+            };
+        }
     }
 
-    /// <inheritdoc/>
+ /// <inheritdoc/>
     public async Task<BaseResult<UserRoleDto>> UpdateRoleForUse(UpdateUserRoleDto dto)
     {
-        return new BaseResult<UserRoleDto>()
+        try
         {
+            var user = await _userRepository
+                .GetAll()
+                .Include(x=>x.Roles)
+                .FirstOrDefaultAsync(x => x.Login == dto.Login);
 
-        };
+            var result = _userValidator.ValidateOnNull(user);
+
+            if (!result.IsSeccess)
+            {
+                return new BaseResult<UserRoleDto>()
+                {
+                    ErrorMessage = ErrorMessage.UserNotFound,
+                    ErroreCode = (int) ErrorCodes.UserNotFound,
+                };
+            }
+
+            var role = user.Roles.FirstOrDefault(x => x.Id == dto.FromRoleId);
+            
+            if (role == null)
+            {
+                return new BaseResult<UserRoleDto>()
+                {
+                    ErrorMessage = ErrorMessage.RoleNotFound,
+                    ErroreCode = (int)ErrorCodes.RoleNotFound
+                };
+            }
+
+            var newRoleForUser = await _roleRepository
+                .GetAll()
+                .FirstOrDefaultAsync(x => x.Id == dto.ToRoleId);
+
+            if (newRoleForUser==null)
+            {
+                return new BaseResult<UserRoleDto>()
+                {
+                    ErrorMessage = ErrorMessage.RoleNotFound,
+                    ErroreCode = (int)ErrorCodes.RoleNotFound
+                };
+            }
+
+            var oldRoleForUser = await _userRoleRepository
+                .GetAll()
+                .Where(x => x.RoleId == role.Id)
+                .FirstOrDefaultAsync(x => x.UserId == user.Id);
+
+            using (var transaction = await _unitOfWork.BeginTransactionAsync())
+            {
+                try
+                {
+                    _unitOfWork.UserRoles.Remove(oldRoleForUser);
+                    await _unitOfWork.SaveChangesAsync();
+
+                    var newUserRole = new UserRole()
+                    {
+                        UserId = user.Id,
+                        RoleId = newRoleForUser.Id
+                    };
+                    await _unitOfWork.UserRoles.CreateAsync(newUserRole);
+                    await _unitOfWork.SaveChangesAsync();
+                    
+                    await transaction.CommitAsync();
+                }
+                catch (Exception)
+                {
+                    await transaction.RollbackAsync();
+                }
+            }
+            return new BaseResult<UserRoleDto>()
+            {
+                Date = new UserRoleDto(user.Login, newRoleForUser.Name)
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+            return new BaseResult<UserRoleDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int)ErrorCodes.ProjectsNotFound,
+            };
+        }
     }
 }

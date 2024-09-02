@@ -140,4 +140,61 @@ public class RoleController : ControllerBase
         }
         return BadRequest(response);
     }
+    
+    /// <summary>
+    /// Видалення ролі у користувача
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <remarks>
+    /// Sample request:
+    /// 
+    ///     DELETE
+    ///     {
+    ///         "login": "User #1",
+    ///         "roleName": "Admin"
+    ///     }
+    /// </remarks>
+    /// <response code="200">Якщо роль було присвоєно</response>
+    /// <response code="400">Якщо роль не було присвоєно</response>
+    [HttpDelete("deleteRole")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<BaseResult<Role>>> DeleteRoleForUser([FromBody]DeleteUserRoleDto dto)
+    {
+        var response = await _roleService.DeleteRoleForUser(dto);
+        if (response.IsSeccess)
+        {
+            return Ok(response);
+        }
+        return BadRequest(response);
+    }
+    
+    /// <summary>
+    /// Оновлення ролі у користувача
+    /// </summary>
+    /// <param name="dto"></param>
+    /// <remarks>
+    /// Sample request:
+    /// 
+    ///     PUT
+    ///     {
+    ///         "login": "User #1",
+    ///         "fromRoleName": "User"
+    ///         "toRoleName": "Admin"
+    ///     }
+    /// </remarks>
+    /// <response code="200">Якщо роль було присвоєно</response>
+    /// <response code="400">Якщо роль не було присвоєно</response>
+    [HttpPut("updateRole")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<BaseResult<Role>>> UpdateRoleForUser([FromBody]UpdateUserRoleDto dto)
+    {
+        var response = await _roleService.UpdateRoleForUse(dto);
+        if (response.IsSeccess)
+        {
+            return Ok(response);
+        }
+        return BadRequest(response);
+    }
 }
