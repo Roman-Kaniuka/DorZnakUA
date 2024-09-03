@@ -11,6 +11,11 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
         builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.Name).IsRequired().HasMaxLength(1000);
         builder.Property(x => x.Description).IsRequired().HasMaxLength(2000);
+
+        builder.HasMany<RoadSign>(x => x.RoadSigns)
+            .WithOne(x => x.Project)
+            .HasForeignKey(x => x.ProjectId)
+            .HasPrincipalKey(x => x.Id);
         
         //тимчасовий код для заповнення таблці
         builder.HasData(new List<Project>()

@@ -10,6 +10,8 @@ public class Project : IEntityId<long>, IAuditable
 
     public User User { get; set; }
     public long UserId { get; set; }
+
+    public List<RoadSign> RoadSigns { get; set; }
     
     public DateTime CreateAt { get; set; }
     public DateTime? UpdateAt { get; set; }
