@@ -24,6 +24,10 @@ public enum ErrorCodes
     RoleNotFound = 42,
     
     //UserRole 51-60
-    UserAlreadyExistsThisRole = 51
+    UserAlreadyExistsThisRole = 51,
+    
+    //RoadSign 61-70
+    RoadSignsNotFound = 61,
+    RoadSignNotFound = 62,
     
 }

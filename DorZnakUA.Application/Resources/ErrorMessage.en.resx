@@ -53,4 +53,10 @@
     <data name="UserAlreadyExistsThisRole" xml:space="preserve">
         <value>User already exists this role</value>
     </data>
+    <data name="RoadSignsNotFound" xml:space="preserve">
+        <value>Road signs not found</value>
+    </data>
+    <data name="RoadSignNotFound" xml:space="preserve">
+        <value>Road sign not found</value>
+    </data>
 </root>

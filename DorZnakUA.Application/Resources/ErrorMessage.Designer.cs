@@ -141,6 +141,24 @@ namespace DorZnakUA.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дорожній знак не знайдено.
+        /// </summary>
+        internal static string RoadSignNotFound {
+            get {
+                return ResourceManager.GetString("RoadSignNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дорожні знаки не знайдено.
+        /// </summary>
+        internal static string RoadSignsNotFound {
+            get {
+                return ResourceManager.GetString("RoadSignsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Роль з такою назвою вже існує.
         /// </summary>
         internal static string RoleAlreadyExists {

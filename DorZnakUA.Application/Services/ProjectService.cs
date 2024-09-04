@@ -60,7 +60,7 @@ public class ProjectService : IProjectService
             
             return new CollectionResult<ProjectDto>()
             {
-                ErrorMessage = ErrorMessage.InternalServerError,
+                ErrorMessage = ErrorMessage.ProjectsNotFound,
                 ErroreCode = (int)ErrorCodes.ProjectsNotFound,
             };
         }
@@ -75,15 +75,30 @@ public class ProjectService : IProjectService
     /// <inheritdoc/>
     public Task<BaseResult<ProjectDto>> GetProjectByIdAsync(long id)
     {
-        ProjectDto? projectDto;
         try
         {
-            projectDto = _projectRepository
+            var projectDto = _projectRepository
                 .GetAll()
                 .AsEnumerable()
                 .Select(x => new ProjectDto(x.Id, x.Name, x.Description, x.CreateAt.ToLongDateString()))
                 .FirstOrDefault(x => x.Id == id);
+            
+            if (projectDto==null)
+            {
+                _logger.Warning($"Проєкт з {id} не був знайдений",id);
+                return Task.FromResult(new BaseResult<ProjectDto>()
+                {
+                    ErrorMessage = ErrorMessage.ProjectNotFound,
+                    ErroreCode = (int)ErrorCodes.ProjectNotFound,
+                });
+            }
+
+            return Task.FromResult(new BaseResult<ProjectDto>()
+            {
+                Date = projectDto,
+            });
         }
+        
         catch (Exception e)
         {
             _logger.Error(e, e.Message);
@@ -93,21 +108,6 @@ public class ProjectService : IProjectService
                 ErroreCode = (int)ErrorCodes.ProjectsNotFound,
             });
         }
-
-        if (projectDto==null)
-        {
-            _logger.Warning($"Проєкт з {id} не був знайдений",id);
-            return Task.FromResult(new BaseResult<ProjectDto>()
-            {
-                ErrorMessage = ErrorMessage.ProjectNotFound,
-                ErroreCode = (int)ErrorCodes.ProjectNotFound,
-            });
-        }
-
-        return Task.FromResult(new BaseResult<ProjectDto>()
-        {
-            Date = projectDto,
-        });
     }
 
     /// <inheritdoc/>

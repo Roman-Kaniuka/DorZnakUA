@@ -136,6 +136,25 @@
             <response code="200">Якщо проєкт було оновлено по id</response>
             <response code="400">Якщо проєкт не було оновлено по id</response>
         </member>
+        <member name="T:DorZnakUA.Api.Controller.RoadSignController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoadSignController.GetRoadSigns(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="projectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoadSignController.GetRoadSign(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:DorZnakUA.Api.Controller.RoleController">
             <summary>
             Сервіс для роботи з ролями
