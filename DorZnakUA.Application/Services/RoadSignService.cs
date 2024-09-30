@@ -160,7 +160,7 @@ public class RoadSignService : IRoadSignService
         {
             var roadSign = await _roadSignRepository
                 .GetAll()
-                .FirstOrDefaultAsync(x => x.ProjectId == id);
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             if (roadSign == null)
             {

@@ -13,4 +13,7 @@ public class RoadSign : IEntityId<long>
 
     public Project Project { get; set; }
     public long ProjectId { get; set; }
+
+    public MetalRack MetalRack { get; set; }
+    public long? MetalRackId { get; set; }
 }

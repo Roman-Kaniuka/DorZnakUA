@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DorZnakUA.Application")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute(" ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3caad1fe4a6ab28e8838bfcc429b798fd2be3b52")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ecce1e7bcf0e5c073f80b9196f0b61d6c4d6b847")]
 [assembly: System.Reflection.AssemblyProductAttribute("DorZnakUA.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DorZnakUA.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -37,7 +37,7 @@ public class RoadSignController : ControllerBase
     /// </remarks>>
     /// <response code="200">Якщо дорожні знаки було знайдено</response>
     /// <response code="400">Якщо дорожні знаки було знайдено</response>
-    [HttpGet("roadsigns{projectId}")]
+    [HttpGet("roadsigns/{projectId}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<RoadSignDto>>> GetRoadSigns(long projectId)

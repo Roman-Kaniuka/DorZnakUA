@@ -33,5 +33,6 @@ public static class DependencyInjection
         services.AddScoped<IBaseRepository<Role>, BaseRepository<Role>>();
         services.AddScoped<IBaseRepository<UserRole>, BaseRepository<UserRole>>();
         services.AddScoped<IBaseRepository<RoadSign>, BaseRepository<RoadSign>>();
+        services.AddScoped<IBaseRepository<MetalRack>, BaseRepository<MetalRack>>();
     }
 }

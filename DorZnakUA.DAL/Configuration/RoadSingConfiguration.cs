@@ -23,22 +23,25 @@ public class RoadSingConfiguration : IEntityTypeConfiguration<RoadSign>
                 PlacementOnRoad = (nameof(PlacementOnRoad.Right)),
                 NumberOfRacks = 1,
                 ProjectId = 1,
+                MetalRackId = 1,
             },
             new RoadSign()
             {
                 Id = 2,
                 Positioning = "112+15",
-                PlacementOnRoad = (nameof(PlacementOnRoad.Right)),
+                PlacementOnRoad = (nameof(PlacementOnRoad.InTheMiddle)),
                 NumberOfRacks = 2,
                 ProjectId = 1,
+                MetalRackId = null,
             },
             new RoadSign()
             {
                 Id = 3,
                 Positioning = "115+98",
-                PlacementOnRoad = (nameof(PlacementOnRoad.Right)),
+                PlacementOnRoad = (nameof(PlacementOnRoad.Left)),
                 NumberOfRacks = 1,
                 ProjectId = 2,
+                MetalRackId = 4
             },
         });
     }
