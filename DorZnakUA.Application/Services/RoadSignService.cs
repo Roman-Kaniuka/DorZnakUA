@@ -118,10 +118,30 @@ public class RoadSignService : IRoadSignService
 
             if (!result.IsSeccess)
             {
-                
+                return new BaseResult<RoadSignDto>()
+                {
+                    ErrorMessage = ErrorMessage.ProjectNotFound,
+                    ErroreCode = (int) ErrorCodes.ProjectNotFound,
+                };
             }
 
+            var roadSign = new RoadSign()
+            {
+                Positioning = dto.Positioning,
+                PlacementOnRoad = dto.PlacementOnRoad,
+                NumberOfRacks = dto.NumberOfRacks,
+                ProjectId = dto.ProjectId
+            };
+
+            await _roadSignRepository.CreateAsync(roadSign);
+            await _projectRepository.SaveChangesAsync();
+
+            return new BaseResult<RoadSignDto>()
+            {
+                Date = _mapper.Map<RoadSignDto>(roadSign)
+            };
         }
+        
         catch (Exception e)
         {
             _logger.Error(e, e.Message);
@@ -134,14 +154,82 @@ public class RoadSignService : IRoadSignService
     }
 
     /// <inheritdoc/>
-    public Task<BaseResult<RoadSignDto>> DeleteRoadSignAsync(long id)
+    public async Task<BaseResult<RoadSignDto>> DeleteRoadSignAsync(long id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var roadSign = await _roadSignRepository
+                .GetAll()
+                .FirstOrDefaultAsync(x => x.ProjectId == id);
+
+            if (roadSign == null)
+            {
+                return new BaseResult<RoadSignDto>()
+                {
+                    ErrorMessage = ErrorMessage.RoadSignNotFound,
+                    ErroreCode = (int) ErrorCodes.RoadSignNotFound,
+                };
+            }
+
+            _roadSignRepository.Remove(roadSign);
+            await _roadSignRepository.SaveChangesAsync();
+
+            return new BaseResult<RoadSignDto>()
+            {
+                Date = _mapper.Map<RoadSignDto>(roadSign),
+            };
+        }
+        
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+            return new BaseResult<RoadSignDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int) ErrorCodes.InternalServerError,
+            };
+        }
     }
 
     /// <inheritdoc/>
-    public Task<BaseResult<RoadSignDto>> UpdateRoadSignAsync(UpdateRoadSignDto dto)
+    public async Task<BaseResult<RoadSignDto>> UpdateRoadSignAsync(UpdateRoadSignDto dto)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var roadSign = await _roadSignRepository
+                .GetAll()
+                .FirstOrDefaultAsync(x => x.Id == dto.Id);
+
+            if (roadSign==null)
+            {
+                return new BaseResult<RoadSignDto>()
+                {
+                    ErrorMessage = ErrorMessage.RoadSignNotFound,
+                    ErroreCode = (int)ErrorCodes.RoadSignNotFound,
+                };
+            }
+
+            roadSign.Positioning = dto.Positioning;
+            roadSign.PlacementOnRoad = dto.PlacementOnRoad;
+            roadSign.NumberOfRacks = dto.NumberOfRacks;
+
+            _roadSignRepository.Update(roadSign);
+            await _roadSignRepository.SaveChangesAsync();
+
+            return new BaseResult<RoadSignDto>()
+            {
+                Date = _mapper.Map<RoadSignDto>(roadSign),
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.Error(e,e.Message);
+            return new BaseResult<RoadSignDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int) ErrorCodes.InternalServerError,
+            };
+        }
+        
     }
 }

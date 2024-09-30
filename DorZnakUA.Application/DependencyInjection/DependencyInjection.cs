@@ -32,5 +32,6 @@ public static class DependencyInjection
         services.AddScoped<IValidator<CreateProjectDto>, CreateProjectValodator>();
         services.AddScoped<IValidator<UpdateProjectDto>, UpdateProjectValodator>();
         services.AddScoped<IBaseValidator<User>, UserValidator>();
+        services.AddScoped<IBaseValidator<Project>, ProjectValidator>();
     }
 }

@@ -138,22 +138,94 @@
         </member>
         <member name="T:DorZnakUA.Api.Controller.RoadSignController">
             <summary>
-            
+            Сервіс для роботи з дорожніми знаками
             </summary>
         </member>
         <member name="M:DorZnakUA.Api.Controller.RoadSignController.GetRoadSigns(System.Int64)">
             <summary>
-            
+            Отримання всіх дорожніх знаків проєкта по projectId 
             </summary>
             <param name="projectId"></param>
-            <returns></returns>
+            <remarks>
+            Sample request to get a roadSign by projectId:
+            
+                GET
+                {
+                    "projectId": "1"
+                }
+            </remarks>>
+            <response code="200">Якщо дорожні знаки було знайдено</response>
+            <response code="400">Якщо дорожні знаки було знайдено</response>
         </member>
         <member name="M:DorZnakUA.Api.Controller.RoadSignController.GetRoadSign(System.Int64)">
             <summary>
-            
+            Отримання дорожнього знаку по id
             </summary>
             <param name="id"></param>
-            <returns></returns>
+            <remarks>
+            Sample request to get a roadSign by id:
+            
+                GET
+                {
+                    "id": "1"
+                }
+            </remarks>>
+            <response code="200">Якщо дорожній знак було знайдено</response>
+            <response code="400">Якщо дорожній знак не було знайдено</response>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoadSignController.CreateRoadSign(Domain.DorZnakUA.Dto.RoadSign.CreateRoadSignDto)">
+             <summary>
+             Створення нового дорожнього знаку
+             </summary>
+             <param name="dto"></param>
+             <remarks>
+             Sample request to create new roadSign:
+            
+                 POST
+                 {
+                     "positioning": "542+74",
+                     "placementOnRoad": "Right",
+                     "numberOfRacks": "2",
+                     "projectId": "1" 
+                 }
+             </remarks>>
+             <response code="200">Якщо новий дорожній знак було створено</response>
+             <response code="400">Якщо новий дорожній знак не було створено</response>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoadSignController.DeleteRoadSign(System.Int64)">
+            <summary>
+            Видалення дорожнього знаку по id
+            </summary>
+            <param name="id"></param>
+            <remarks>
+            Sample request to delete a roadSign by id:
+            
+                DELTE
+                {
+                    "id": "1"
+                }
+            </remarks>>
+            <response code="200">Якщо дорожній знак було видалено</response>
+            <response code="400">Якщо дорожній знак не було видалено</response>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.RoadSignController.UpdateRoadSign(Domain.DorZnakUA.Dto.RoadSign.UpdateRoadSignDto)">
+             <summary>
+             Оновлення дорожнього знаку
+             </summary>
+             <param name="dto"></param>
+             <remarks>
+             Sample request to update a roadSign by id:
+            
+                 PUT
+                 {
+                     "id": "1",
+                     "positioning": "115+98",
+                     "placementOnRoad": "Left",
+                     "numberOfRacks": "2"
+                 }
+             </remarks>>
+             <response code="200">Якщо дорожній знак було оновлено</response>
+             <response code="400">Якщо дорожній знак не було оновлено</response>
         </member>
         <member name="T:DorZnakUA.Api.Controller.RoleController">
             <summary>
