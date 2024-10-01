@@ -23,7 +23,7 @@ public interface IProjectService
     /// <returns></returns>
     Task<BaseResult<ProjectDto>> GetProjectByIdAsync(long id);
 
-    //// <summary>
+    /// <summary>
     /// Створення проєкту з базовими параметрами
     /// </summary>
     /// <param name="dto"></param>
