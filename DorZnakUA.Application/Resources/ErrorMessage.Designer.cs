@@ -87,6 +87,24 @@ namespace DorZnakUA.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Металева стійка не знайдена.
+        /// </summary>
+        internal static string MetalRackNotFound {
+            get {
+                return ResourceManager.GetString("MetalRackNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Металеві стійки не знайдено.
+        /// </summary>
+        internal static string MetalRacksNotFound {
+            get {
+                return ResourceManager.GetString("MetalRacksNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Не вірний пароль.
         /// </summary>
         internal static string PasswordIsWrong {

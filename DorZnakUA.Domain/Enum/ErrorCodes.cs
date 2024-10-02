@@ -30,4 +30,8 @@ public enum ErrorCodes
     RoadSignsNotFound = 61,
     RoadSignNotFound = 62,
     
+    //MetalRack 71-80
+    MetalRacksNotFound = 71,
+    MetalRackNotFound = 72,
+    
 }

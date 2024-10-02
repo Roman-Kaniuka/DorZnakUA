@@ -60,4 +60,10 @@
     <data name="RoadSignNotFound" xml:space="preserve">
         <value>Дорожній знак не знайдено</value>
     </data>
+    <data name="MetalRacksNotFound" xml:space="preserve">
+        <value>Металеві стійки не знайдено</value>
+    </data>
+    <data name="MetalRackNotFound" xml:space="preserve">
+        <value>Металева стійка не знайдена</value>
+    </data>
 </root>

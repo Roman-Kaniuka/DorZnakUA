@@ -2,8 +2,6 @@ using Asp.Versioning;
 using Domain.DorZnakUA.Dto.Project;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DorZnakUA.Api.Controller;
