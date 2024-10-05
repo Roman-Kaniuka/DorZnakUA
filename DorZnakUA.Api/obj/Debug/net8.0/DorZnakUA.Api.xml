@@ -47,6 +47,38 @@
              <response code="200">Якщо нового користувача було зареєстровано</response>
              <response code="400">Якщо нового користувача не було зареєстровано</response>
         </member>
+        <member name="T:DorZnakUA.Api.Controller.MetalRackController">
+            <summary>
+            Сервіс для роботи зі стійками
+            </summary>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.MetalRackController.GetAllMetalRacks">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.MetalRackController.GetMetalRack(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.MetalRackController.GetRoadSignMetalRack(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="roadSignId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.MetalRackController.CreateMetalRack(Domain.DorZnakUA.Dto.MetalRack.CreateMetalRackDto)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="T:DorZnakUA.Api.Controller.ProjectController">
             <summary>
             Сервіс для роботи з проєктами

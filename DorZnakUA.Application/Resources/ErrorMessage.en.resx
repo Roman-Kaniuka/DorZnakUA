@@ -65,4 +65,10 @@
     <data name="MetalRackNotFound" xml:space="preserve">
         <value>Metal rack not found</value>
     </data>
+    <data name="MetalRackAlreadyExists" xml:space="preserve">
+        <value>Metal rack already exists</value>
+    </data>
+    <data name="MetalRackWithSimilarParametersAlreadyExists" xml:space="preserve">
+        <value>Metal rack with similar parameters already exists</value>
+    </data>
 </root>

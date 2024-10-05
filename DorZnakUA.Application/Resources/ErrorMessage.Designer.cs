@@ -87,6 +87,15 @@ namespace DorZnakUA.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Стійка з такою назвою вже існує.
+        /// </summary>
+        internal static string MetalRackAlreadyExists {
+            get {
+                return ResourceManager.GetString("MetalRackAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Металева стійка не знайдена.
         /// </summary>
         internal static string MetalRackNotFound {
@@ -101,6 +110,15 @@ namespace DorZnakUA.Application.Resources {
         internal static string MetalRacksNotFound {
             get {
                 return ResourceManager.GetString("MetalRacksNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Металева стійка зі схожими параметрами вже існує.
+        /// </summary>
+        internal static string MetalRackWithSimilarParametersAlreadyExists {
+            get {
+                return ResourceManager.GetString("MetalRackWithSimilarParametersAlreadyExists", resourceCulture);
             }
         }
         

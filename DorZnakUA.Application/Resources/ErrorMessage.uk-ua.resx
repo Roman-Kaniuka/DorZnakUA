@@ -66,4 +66,10 @@
     <data name="MetalRackNotFound" xml:space="preserve">
         <value>Металева стійка не знайдена</value>
     </data>
+    <data name="MetalRackAlreadyExists" xml:space="preserve">
+        <value>Стійка з такою назвою вже існує</value>
+    </data>
+    <data name="MetalRackWithSimilarParametersAlreadyExists" xml:space="preserve">
+        <value>Металева стійка зі схожими параметрами вже існує</value>
+    </data>
 </root>

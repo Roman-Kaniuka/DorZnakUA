@@ -36,15 +36,15 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             new User()
             {
                 Id = 1,
-                Login = "Roma",
-                Password = "qwerty",
+                Login = "qwerty",
+                Password = "ZehL4zUy+3hMSBKWdfnv86aCsnFowOp0Syz1juAjN8U=",
                 CreateAt = DateTime.UtcNow
             },
             new User()
             {
                 Id = 2,
                 Login = "Dima",
-                Password = "kamykadze",
+                Password = "ZehL4zUy+3hMSBKWdfnv86aCsnFowOp0Syz1juAjN8U=",
                 CreateAt = DateTime.UtcNow
             },
         });

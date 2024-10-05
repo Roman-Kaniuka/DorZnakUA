@@ -10,7 +10,7 @@ public interface IMetalRackService
     /// Отримання всіх існуючих стійок
     /// </summary>
     /// <returns></returns>
-    Task<CollectionResult<MetalRackDto>> GetMetalRacksAsync();
+    Task<CollectionResult<MetalRackDto>> GetAllMetalRacksAsync();
     
     /// <summary>
     /// Отримання стійки за її ідентифікатором
@@ -24,7 +24,7 @@ public interface IMetalRackService
     /// </summary>
     /// <param name="roadSignId"></param>
     /// <returns></returns>
-    Task<BaseResult<MetalRackDto>> GetMetalRacksAsync(long roadSignId);
+    Task<BaseResult<MetalRackDto>> GetRoadSignMetalRackAsync(long roadSignId);
     
     /// <summary>
     /// Створення нової стійки

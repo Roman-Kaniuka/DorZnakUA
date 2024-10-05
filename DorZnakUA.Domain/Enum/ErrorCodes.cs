@@ -33,5 +33,7 @@ public enum ErrorCodes
     //MetalRack 71-80
     MetalRacksNotFound = 71,
     MetalRackNotFound = 72,
+    MetalRackAlreadyExists = 73,
+    MetalRackWithSimilarParametersAlreadyExists = 74,
     
 }

@@ -27,7 +27,7 @@ public class MetalRackService : IMetalRackService
     }
 
     /// <inheritdoc/>
-    public async Task<CollectionResult<MetalRackDto>> GetMetalRacksAsync()
+    public async Task<CollectionResult<MetalRackDto>> GetAllMetalRacksAsync()
     {
         MetalRackDto[] metalRacks;
         
@@ -105,7 +105,7 @@ public class MetalRackService : IMetalRackService
     }
 
     /// <inheritdoc/>
-    public async Task<BaseResult<MetalRackDto>> GetMetalRacksAsync(long roadSignId)
+    public async Task<BaseResult<MetalRackDto>> GetRoadSignMetalRackAsync(long roadSignId)
     {
         try
         {
@@ -154,9 +154,67 @@ public class MetalRackService : IMetalRackService
     }
 
     /// <inheritdoc/>
-    public Task<BaseResult<MetalRackDto>> CreateMetalRackAsync(CreateMetalRackDto dto)
+    public async Task<BaseResult<MetalRackDto>> CreateMetalRackAsync(CreateMetalRackDto dto)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var metalRacks = await _metalRackRepository
+                .GetAll()
+                .ToArrayAsync();
+
+            var metalRackNames = metalRacks.Select(x => x.Name);
+
+            var metalRack = new MetalRack()
+            {
+                Name = dto.Name,
+                Height = dto.Height,
+                Diameter = dto.Diameter,
+                Thickness = dto.Thickness,
+                Weight = dto.Weight
+            };
+            
+            if (metalRackNames.Contains(dto.Name))
+            {
+                _logger.Warning($"Стійка {dto.Name} вже існує.");
+                return new BaseResult<MetalRackDto>()
+                {
+                    ErrorMessage = ErrorMessage.MetalRackAlreadyExists,
+                    ErroreCode = (int)ErrorCodes.MetalRackAlreadyExists,
+                };
+            }
+            
+            foreach (var rack in metalRacks)
+            {
+                if (rack.Equals(metalRack))
+                {
+                    _logger.Warning($"Металева стійка зі схожими параметрами вже існує.");
+
+                    return new BaseResult<MetalRackDto>()
+                    {
+                        ErrorMessage = ErrorMessage.MetalRackWithSimilarParametersAlreadyExists,
+                        ErroreCode = (int)ErrorCodes.MetalRackWithSimilarParametersAlreadyExists,
+                    };
+                }
+            }
+
+            await _metalRackRepository.CreateAsync(metalRack);
+            await _metalRackRepository.SaveChangesAsync();
+
+            return new BaseResult<MetalRackDto>()
+            {
+                Date = _mapper.Map<MetalRackDto>(metalRack),
+            };
+        }
+        
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+            return new BaseResult<MetalRackDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int)ErrorCodes.InternalServerError
+            };
+        }
     }
 
     /// <inheritdoc/>
