@@ -18,7 +18,8 @@ public class MetalRackConfiguration : IEntityTypeConfiguration<MetalRack>
         builder.HasMany<RoadSign>(x => x.RoadSigns)
             .WithOne(x => x.MetalRack)
             .HasForeignKey(x => x.MetalRackId)
-            .HasPrincipalKey(x => x.Id);
+            .HasPrincipalKey(x => x.Id)
+            .OnDelete(DeleteBehavior.SetNull);;
 
         builder.HasData(new List<MetalRack>()
         {

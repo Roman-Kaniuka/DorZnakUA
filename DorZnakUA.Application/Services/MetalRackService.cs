@@ -218,15 +218,87 @@ public class MetalRackService : IMetalRackService
     }
 
     /// <inheritdoc/>
-    public Task<BaseResult<MetalRackDto>> DeleteMetalRack(long id)
+    public async Task<BaseResult<MetalRackDto>> DeleteMetalRackAsync(long id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var metalRack = await _metalRackRepository
+                .GetAll()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (metalRack==null)
+            {
+                _logger.Warning($"Стійку з id: {id} не знайдено.");
+                return new BaseResult<MetalRackDto>()
+                {
+                    ErrorMessage = ErrorMessage.MetalRackNotFound,
+                    ErroreCode = (int) ErrorCodes.MetalRackNotFound,
+                };
+            }
+
+            _metalRackRepository.Remove(metalRack);
+            await _metalRackRepository.SaveChangesAsync();
+
+            return new BaseResult<MetalRackDto>()
+            {
+                Date = _mapper.Map<MetalRackDto>(metalRack),
+            };
+        }
+        
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+            return new BaseResult<MetalRackDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int)ErrorCodes.InternalServerError,
+            };
+        }
     }
 
     /// <inheritdoc/>
-    public Task<BaseResult<MetalRackDto>> UpdateMetalRack(UpdateMetalRackDto dto)
+    public async Task<BaseResult<MetalRackDto>> UpdateMetalRackAsync(UpdateMetalRackDto dto)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var metalRack = await _metalRackRepository
+                .GetAll()
+                .FirstOrDefaultAsync(x => x.Id == dto.Id);
+
+            if (metalRack==null)
+            {
+                _logger.Warning($"Стійку з id: {dto.Id} не знайдено.");
+                return new BaseResult<MetalRackDto>()
+                {
+                    ErrorMessage = ErrorMessage.MetalRackNotFound,
+                    ErroreCode = (int) ErrorCodes.MetalRackNotFound,
+                };
+            }
+
+            metalRack.Name = dto.Name;
+            metalRack.Height = dto.Height;
+            metalRack.Weight = dto.Weight;
+            metalRack.Diameter = dto.Diameter;
+            metalRack.Thickness = dto.Thickness;
+
+            _metalRackRepository.Update(metalRack);
+            await _metalRackRepository.SaveChangesAsync();
+
+            return new BaseResult<MetalRackDto>()
+            {
+                Date = _mapper.Map<MetalRackDto>(metalRack),
+            };
+        }
+        
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+            return new BaseResult<MetalRackDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int) ErrorCodes.InternalServerError,
+            };
+        }
     }
 
     /// <inheritdoc/>

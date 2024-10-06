@@ -38,14 +38,14 @@ public interface IMetalRackService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<BaseResult<MetalRackDto>> DeleteMetalRack (long id);
+    Task<BaseResult<MetalRackDto>> DeleteMetalRackAsync (long id);
 
     /// <summary>
     /// Оновлення даних про стійку
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<BaseResult<MetalRackDto>> UpdateMetalRack(UpdateMetalRackDto dto);
+    Task<BaseResult<MetalRackDto>> UpdateMetalRackAsync(UpdateMetalRackDto dto);
 
     /// <summary>
     /// Обчислює висота та кількісь стійок для знаку
