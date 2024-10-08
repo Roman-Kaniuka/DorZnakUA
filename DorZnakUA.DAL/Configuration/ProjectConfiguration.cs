@@ -27,7 +27,8 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
                 Description = "test1",
                 UserId = 1,
                 CreateAt = DateTime.UtcNow,
-                CreateBy = 1
+                CreateBy = 1,
+                WindZoneId = 4,
             },
             new Project()
             {
@@ -36,7 +37,8 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
                 Description = "test2",
                 UserId = 1,
                 CreateAt = DateTime.UtcNow,
-                CreateBy = 1
+                CreateBy = 1,
+                WindZoneId = 3,
             },
             new Project()
             {
@@ -45,7 +47,8 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
                 Description = "test3",
                 UserId = 2,
                 CreateAt = DateTime.UtcNow,
-                CreateBy = 3
+                CreateBy = 3,
+                WindZoneId = 1,
             }
 
         });
