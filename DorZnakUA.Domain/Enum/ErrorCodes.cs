@@ -36,4 +36,9 @@ public enum ErrorCodes
     MetalRackAlreadyExists = 73,
     MetalRackWithSimilarParametersAlreadyExists = 74,
     
+    //WindZone 81-90
+    WindZonesNotFound = 81,
+    WindZoneNotFound = 82,
+    WindZoneAlreadyExists = 83,
+    
 }

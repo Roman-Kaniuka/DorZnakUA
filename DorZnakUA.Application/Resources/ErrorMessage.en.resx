@@ -71,4 +71,13 @@
     <data name="MetalRackWithSimilarParametersAlreadyExists" xml:space="preserve">
         <value>Metal rack with similar parameters already exists</value>
     </data>
+    <data name="WindZonesNotFound" xml:space="preserve">
+        <value>Wind zones not found</value>
+    </data>
+    <data name="WindZoneNotFound" xml:space="preserve">
+        <value>Wind zone not found</value>
+    </data>
+    <data name="WindZoneAlreadyExists" xml:space="preserve">
+        <value>Wind zone already exists</value>
+    </data>
 </root>

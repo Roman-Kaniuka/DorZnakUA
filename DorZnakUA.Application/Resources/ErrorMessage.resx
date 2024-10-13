@@ -79,4 +79,13 @@
     <data name="MetalRackWithSimilarParametersAlreadyExists" xml:space="preserve">
         <value>Металева стійка зі схожими параметрами вже існує</value>
     </data>
+    <data name="WindZonesNotFound" xml:space="preserve">
+        <value>Жодного вітрового району не знайдено</value>
+    </data>
+    <data name="WindZoneNotFound" xml:space="preserve">
+        <value>Вітрову зону не знайдено</value>
+    </data>
+    <data name="WindZoneAlreadyExists" xml:space="preserve">
+        <value>Такий вітровий район вже існує</value>
+    </data>
 </root>

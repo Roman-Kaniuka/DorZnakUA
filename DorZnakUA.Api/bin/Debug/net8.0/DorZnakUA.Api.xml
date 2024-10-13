@@ -461,6 +461,40 @@
                 }
             </remarks>>
         </member>
+        <member name="M:DorZnakUA.Api.Controller.WindZoneController.GetAllWindZones">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.WindZoneController.GetWindZoneById(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.WindZoneController.CreateWindZone(Domain.DorZnakUA.Dto.WindZone.CreateWindZoneDto)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.WindZoneController.DeleteWindZone(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DorZnakUA.Api.Controller.WindZoneController.UpdateWindZone(Domain.DorZnakUA.Dto.WindZone.UpdateWindZoneDto)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
         <member name="M:DorZnakUA.Api.Startup.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Підключення Swagger

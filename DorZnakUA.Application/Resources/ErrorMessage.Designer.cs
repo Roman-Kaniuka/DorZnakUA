@@ -239,5 +239,32 @@ namespace DorZnakUA.Application.Resources {
                 return ResourceManager.GetString("UserNotFound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Такий вітровий район вже існує.
+        /// </summary>
+        internal static string WindZoneAlreadyExists {
+            get {
+                return ResourceManager.GetString("WindZoneAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вітрову зону не знайдено.
+        /// </summary>
+        internal static string WindZoneNotFound {
+            get {
+                return ResourceManager.GetString("WindZoneNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Жодного вітрового району не знайдено.
+        /// </summary>
+        internal static string WindZonesNotFound {
+            get {
+                return ResourceManager.GetString("WindZonesNotFound", resourceCulture);
+            }
+        }
     }
 }
