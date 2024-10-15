@@ -463,37 +463,83 @@
         </member>
         <member name="M:DorZnakUA.Api.Controller.WindZoneController.GetAllWindZones">
             <summary>
-            
+            Отримання всіх вітрових районів
             </summary>
-            <returns></returns>
+            <remarks>
+            Sample request to get a all wind zones:
+            
+                GET
+                {
+                }
+            </remarks>>
+            <response code="200">Якщо вітрові райони було знайдено</response>
+            <response code="400">Якщо вітрові райони не було знайдено</response>
         </member>
         <member name="M:DorZnakUA.Api.Controller.WindZoneController.GetWindZoneById(System.Int64)">
             <summary>
-            
+            Отримання вітрового району по ідентифікатору
             </summary>
             <param name="id"></param>
-            <returns></returns>
+            <remarks>
+            Sample request to get a wind zone by id:
+            
+                GET
+                {
+                    "id": "1"
+                }
+            </remarks>>
+            <response code="200">Якщо вітровий район було знайдено по id</response>
+            <response code="400">Якщо вітровий район не було знайдено по id</response>
         </member>
         <member name="M:DorZnakUA.Api.Controller.WindZoneController.CreateWindZone(Domain.DorZnakUA.Dto.WindZone.CreateWindZoneDto)">
-            <summary>
+             <summary>
+             Створення нового вітрового району
+             </summary>
+             <param name="dto"></param>
+             <remarks>
+             Sample request to create new wind zone
             
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
+                 POST
+                 {
+                     "name": "Тестова вітрова зона",
+                     "description": "Description for wind zone"
+                 }
+             </remarks>>
+             <response code="200">Якщо вітровий район було успішно створено</response>
+             <response code="400">Якщо вітровий район було не створено</response>
         </member>
         <member name="M:DorZnakUA.Api.Controller.WindZoneController.DeleteWindZone(System.Int64)">
             <summary>
-            
+            Видалення вітрового району за ідентифікатором
             </summary>
             <param name="id"></param>
-            <returns></returns>
+            <remarks>
+            Sample request to delete a wind zone by id:
+            
+                DELTE
+                {
+                    "id": "1"
+                }
+            </remarks>>
+            <response code="200">Якщо вітровий район було видалено</response>
+            <response code="400">Якщо вітровий район не було видалено</response>
         </member>
         <member name="M:DorZnakUA.Api.Controller.WindZoneController.UpdateWindZone(Domain.DorZnakUA.Dto.WindZone.UpdateWindZoneDto)">
             <summary>
-            
+            Оновлення вітрового району
             </summary>
             <param name="dto"></param>
-            <returns></returns>
+            <remarks>
+            Sample request to update a wind zone:
+            
+                PUT
+                {
+                    "id": "Тестова вітрова зона",
+                    "description": "Тестовий опис для оновлення вітрової зони",
+                }
+            </remarks>>
+            <response code="200">Якщо вітровий район було оновлено</response>
+            <response code="400">Якщо вітровий район не було оновлено</response>
         </member>
         <member name="M:DorZnakUA.Api.Startup.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>

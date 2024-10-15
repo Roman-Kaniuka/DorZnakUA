@@ -35,5 +35,7 @@ public static class DependencyInjection
         services.AddScoped<IBaseRepository<RoadSign>, BaseRepository<RoadSign>>();
         services.AddScoped<IBaseRepository<MetalRack>, BaseRepository<MetalRack>>();
         services.AddScoped<IBaseRepository<WindZone>, BaseRepository<WindZone>>();
+        services.AddScoped<IBaseRepository<Shield>, BaseRepository<Shield>>();
+        services.AddScoped<IBaseRepository<RoadSignShield>, BaseRepository<RoadSignShield>>();
     }
 }

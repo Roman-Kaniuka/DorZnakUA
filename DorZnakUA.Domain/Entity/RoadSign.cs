@@ -16,4 +16,6 @@ public class RoadSign : IEntityId<long>
 
     public MetalRack MetalRack { get; set; }
     public long? MetalRackId { get; set; }
+
+    public List<Shield> Shields { get; set; }
 }
