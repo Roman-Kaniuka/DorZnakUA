@@ -88,4 +88,13 @@
     <data name="WindZoneAlreadyExists" xml:space="preserve">
         <value>Такий вітровий район вже існує</value>
     </data>
+    <data name="ShieldsNotFound" xml:space="preserve">
+        <value>Щити не знайдено</value>
+    </data>
+    <data name="ShieldNotFound" xml:space="preserve">
+        <value>Щит не знайдено</value>
+    </data>
+    <data name="ShieldAlreadyExists" xml:space="preserve">
+        <value>Щит вже існує</value>
+    </data>
 </root>

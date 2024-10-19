@@ -80,4 +80,13 @@
     <data name="WindZoneAlreadyExists" xml:space="preserve">
         <value>Wind zone already exists</value>
     </data>
+    <data name="ShieldsNotFound" xml:space="preserve">
+        <value>Shields not found</value>
+    </data>
+    <data name="ShieldNotFound" xml:space="preserve">
+        <value>Shield not found</value>
+    </data>
+    <data name="ShieldAlreadyExists" xml:space="preserve">
+        <value>Shield already exists</value>
+    </data>
 </root>

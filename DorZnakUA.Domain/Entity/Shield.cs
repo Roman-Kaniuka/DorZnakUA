@@ -14,7 +14,18 @@ public class Shield : IEntityId<long>
     public double Weight { get; set; }
 
     public List<RoadSign> RoadSigns { get; set; }
-    
-    
-    
+
+    public override bool Equals(object obj)
+    {
+        if (obj is Shield shield)
+        {
+            return Name == shield.Name && SizeType == shield.SizeType;
+        }
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Name,SizeType);
+    }
 }

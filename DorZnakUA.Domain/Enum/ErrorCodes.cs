@@ -41,4 +41,9 @@ public enum ErrorCodes
     WindZoneNotFound = 82,
     WindZoneAlreadyExists = 83,
     
+    //Shield 91-100
+    ShieldsNotFound = 91,
+    ShieldNotFound = 92,
+    ShieldAlreadyExists = 93,
+    
 }

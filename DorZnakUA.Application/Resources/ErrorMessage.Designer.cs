@@ -213,6 +213,33 @@ namespace DorZnakUA.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Щит вже існує.
+        /// </summary>
+        internal static string ShieldAlreadyExists {
+            get {
+                return ResourceManager.GetString("ShieldAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Щит не знайдено.
+        /// </summary>
+        internal static string ShieldNotFound {
+            get {
+                return ResourceManager.GetString("ShieldNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Щити не знайдено.
+        /// </summary>
+        internal static string ShieldsNotFound {
+            get {
+                return ResourceManager.GetString("ShieldsNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Користувач з таким логіном вже існує.
         /// </summary>
         internal static string UserAlreadyExists {
