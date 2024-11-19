@@ -21,14 +21,14 @@ public interface IRoleService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<BaseResult<RoleDto>> DeleteRole(long id);
+    Task<BaseResult<RoleDto>> DeleteRoleAsync(long id);
 
     /// <summary>
     /// Оновлення ролі
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<BaseResult<RoleDto>> UpdateRole(RoleDto dto);
+    Task<BaseResult<RoleDto>> UpdateRoleAsync(RoleDto dto);
 
     /// <summary>
     /// Присвоєння ролі користувачу
@@ -42,12 +42,12 @@ public interface IRoleService
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<BaseResult<UserRoleDto>> DeleteRoleForUser(DeleteUserRoleDto dto);
+    Task<BaseResult<UserRoleDto>> DeleteRoleForUserAsync(DeleteUserRoleDto dto);
 
     /// <summary>
     /// Оновлення ролі у користувача
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<BaseResult<UserRoleDto>> UpdateRoleForUse(UpdateUserRoleDto dto);
+    Task<BaseResult<UserRoleDto>> UpdateRoleForUseAsync(UpdateUserRoleDto dto);
 }

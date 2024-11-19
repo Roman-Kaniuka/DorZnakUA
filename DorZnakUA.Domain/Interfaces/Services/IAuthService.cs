@@ -14,12 +14,12 @@ public interface IAuthService
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<BaseResult<UserDto>> Register(RegisterUserDto dto);
+    Task<BaseResult<UserDto>> RegisterAsync(RegisterUserDto dto);
 
     /// <summary>
     /// Авторизація користувача
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<BaseResult<TokenDto>> Login(LoginUserDto dto);
+    Task<BaseResult<TokenDto>> LoginAsync(LoginUserDto dto);
 }

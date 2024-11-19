@@ -71,7 +71,7 @@ public class TokenService : ITokenService
         return claimsPrincipal;
     }
 
-    public async Task<BaseResult<TokenDto>> RefreshToken(TokenDto dto)
+    public async Task<BaseResult<TokenDto>> RefreshTokenAsync(TokenDto dto)
     {
         var accessToken = dto.AccessToken;
         var refreshToken = dto.RefreshToken;

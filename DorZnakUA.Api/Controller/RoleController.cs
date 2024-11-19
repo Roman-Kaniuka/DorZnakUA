@@ -73,7 +73,7 @@ public class RoleController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<RoleDto>>> DeleteRole(long id)
     {
-        var response = await _roleService.DeleteRole(id);
+        var response = await _roleService.DeleteRoleAsync(id);
         
         if (response.IsSeccess)
         {
@@ -103,7 +103,7 @@ public class RoleController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<RoleDto>>> UpdateRole([FromBody]RoleDto dto)
     {
-        var response = await _roleService.UpdateRole(dto);
+        var response = await _roleService.UpdateRoleAsync(dto);
         
         if (response.IsSeccess)
         {
@@ -161,7 +161,7 @@ public class RoleController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<Role>>> DeleteRoleForUser([FromBody]DeleteUserRoleDto dto)
     {
-        var response = await _roleService.DeleteRoleForUser(dto);
+        var response = await _roleService.DeleteRoleForUserAsync(dto);
         if (response.IsSeccess)
         {
             return Ok(response);
@@ -190,7 +190,7 @@ public class RoleController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<Role>>> UpdateRoleForUser([FromBody]UpdateUserRoleDto dto)
     {
-        var response = await _roleService.UpdateRoleForUse(dto);
+        var response = await _roleService.UpdateRoleForUseAsync(dto);
         if (response.IsSeccess)
         {
             return Ok(response);

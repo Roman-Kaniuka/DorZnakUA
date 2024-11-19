@@ -97,7 +97,7 @@ public class ProjectController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<ProjectDto>>> DeleteProject(long id)
     {
-        var response = await _projectService.DeleteProject(id);
+        var response = await _projectService.DeleteProjectAsync(id);
         if (response.IsSeccess)
         {
             return Ok(response);
@@ -157,7 +157,7 @@ public class ProjectController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<ProjectDto>>> UpdateProject([FromBody]UpdateProjectDto dto)
     {
-        var responce = await _projectService.UpdateProject(dto);
+        var responce = await _projectService.UpdateProjectAsync(dto);
         if (responce.IsSeccess)
         {
             return Ok(responce);

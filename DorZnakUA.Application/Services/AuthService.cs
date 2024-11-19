@@ -43,7 +43,7 @@ public class AuthService : IAuthService
     }
 
     /// <inheritdoc/>
-    public async Task<BaseResult<UserDto>> Register(RegisterUserDto dto)
+    public async Task<BaseResult<UserDto>> RegisterAsync(RegisterUserDto dto)
     {
         if (dto.Password != dto.PasswordConfirm)
         {
@@ -133,7 +133,7 @@ public class AuthService : IAuthService
     }
 
     /// <inheritdoc/>
-    public async Task<BaseResult<TokenDto>> Login(LoginUserDto dto)
+    public async Task<BaseResult<TokenDto>> LoginAsync(LoginUserDto dto)
     {
         try
         {

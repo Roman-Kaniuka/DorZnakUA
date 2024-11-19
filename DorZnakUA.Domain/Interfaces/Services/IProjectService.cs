@@ -35,13 +35,13 @@ public interface IProjectService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<BaseResult<ProjectDto>> DeleteProject(long id);
+    Task<BaseResult<ProjectDto>> DeleteProjectAsync(long id);
     
     /// <summary>
     /// Оновлює дані проєкту
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<BaseResult<ProjectDto>> UpdateProject(UpdateProjectDto dto);
+    Task<BaseResult<ProjectDto>> UpdateProjectAsync(UpdateProjectDto dto);
     
 }

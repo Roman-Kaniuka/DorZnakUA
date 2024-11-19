@@ -82,7 +82,7 @@ public class RoleService : IRoleService
     }
 
     /// <inheritdoc/>
-    public async Task<BaseResult<RoleDto>> DeleteRole(long id)
+    public async Task<BaseResult<RoleDto>> DeleteRoleAsync(long id)
     {
         try
         {
@@ -120,7 +120,7 @@ public class RoleService : IRoleService
     }
 
     /// <inheritdoc/>
-    public async Task<BaseResult<RoleDto>> UpdateRole(RoleDto dto)
+    public async Task<BaseResult<RoleDto>> UpdateRoleAsync(RoleDto dto)
     {
         try
         {
@@ -231,7 +231,7 @@ public class RoleService : IRoleService
     }
 
   /// <inheritdoc/>
-    public async Task<BaseResult<UserRoleDto>> DeleteRoleForUser(DeleteUserRoleDto dto)
+    public async Task<BaseResult<UserRoleDto>> DeleteRoleForUserAsync(DeleteUserRoleDto dto)
     {
         try
         {
@@ -288,7 +288,7 @@ public class RoleService : IRoleService
     }
 
  /// <inheritdoc/>
-    public async Task<BaseResult<UserRoleDto>> UpdateRoleForUse(UpdateUserRoleDto dto)
+    public async Task<BaseResult<UserRoleDto>> UpdateRoleForUseAsync(UpdateUserRoleDto dto)
     {
         try
         {

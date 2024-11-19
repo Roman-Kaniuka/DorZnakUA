@@ -37,7 +37,7 @@ public class TokenController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<TokenDto>>> RefreshToken ([FromBody]TokenDto dto)
     {
-        var response = await _tokenService.RefreshToken(dto);
+        var response = await _tokenService.RefreshTokenAsync(dto);
 
         if (response.IsSeccess)
         {

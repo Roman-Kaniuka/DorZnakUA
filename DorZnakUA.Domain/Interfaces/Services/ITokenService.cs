@@ -11,5 +11,5 @@ public interface ITokenService
 
     ClaimsPrincipal GetPrincipalFromExpiredToken(string accessToken);
     
-    Task<BaseResult<TokenDto>> RefreshToken(TokenDto dto);
+    Task<BaseResult<TokenDto>> RefreshTokenAsync(TokenDto dto);
 }
