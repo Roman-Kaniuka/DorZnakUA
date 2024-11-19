@@ -151,7 +151,7 @@ public class RoleController : ControllerBase
     ///     DELETE
     ///     {
     ///         "login": "User #1",
-    ///         "roleName": "Admin"
+    ///         "roleId": "2"
     ///     }
     /// </remarks>
     /// <response code="200">Якщо роль було присвоєно</response>
@@ -179,8 +179,8 @@ public class RoleController : ControllerBase
     ///     PUT
     ///     {
     ///         "login": "User #1",
-    ///         "fromRoleName": "User"
-    ///         "toRoleName": "Admin"
+    ///         "fromRoleId": "2"
+    ///         "toRoleId": "1"
     ///     }
     /// </remarks>
     /// <response code="200">Якщо роль було присвоєно</response>
