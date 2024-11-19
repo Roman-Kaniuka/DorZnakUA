@@ -83,7 +83,7 @@ public class WindZoneController : ControllerBase
     ///
     ///     POST
     ///     {
-    ///         "name": "Тестова вітрова зона",
+    ///         "name": "Test wind zone",
     ///         "description": "Description for wind zone"
     ///     }
     /// </remarks>>
@@ -142,8 +142,9 @@ public class WindZoneController : ControllerBase
     /// 
     ///     PUT
     ///     {
-    ///         "id": "Тестова вітрова зона",
-    ///         "description": "Тестовий опис для оновлення вітрової зони",
+    ///         "id": "1",
+    ///         "name": "Update test wind zone",
+    ///         "description": "Description for wind zone",
     ///     }
     /// </remarks>>
     /// <response code="200">Якщо вітровий район було оновлено</response>
