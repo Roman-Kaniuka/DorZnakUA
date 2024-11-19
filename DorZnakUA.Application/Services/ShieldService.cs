@@ -246,7 +246,7 @@ public class ShieldService : IShieldService
     }
 
     /// <inheritdoc/>
-    public async Task<BaseResult<ShieldDto>> UpdateShieldDto(UpdateShieldDto dto)
+    public async Task<BaseResult<ShieldDto>> UpdateShieldAsync(UpdateShieldDto dto)
     {
         try
         {
@@ -266,6 +266,7 @@ public class ShieldService : IShieldService
 
             var shields = await _shieldRepository
                 .GetAll()
+                .AsNoTracking()
                 .ToArrayAsync();
 
             shield.Group = dto.Group;

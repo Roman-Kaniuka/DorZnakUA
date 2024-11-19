@@ -47,7 +47,7 @@ public interface IShieldService
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<BaseResult<ShieldDto>> UpdateShieldDto(UpdateShieldDto dto);
+    Task<BaseResult<ShieldDto>> UpdateShieldAsync(UpdateShieldDto dto);
 
 
 }

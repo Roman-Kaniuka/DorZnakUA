@@ -29,6 +29,7 @@ public static class DependencyInjection
         services.AddScoped<IRoadSignService, RoadSignService>();
         services.AddScoped<IMetalRackService, MetalRackService>();
         services.AddScoped<IWindZoneService, WindZoneService>();
+        services.AddScoped<IShieldService, ShieldService>();
 
         services.AddScoped<IProjectValidator, ProjectValidator>();
         services.AddScoped<IValidator<CreateProjectDto>, CreateProjectValodator>();
