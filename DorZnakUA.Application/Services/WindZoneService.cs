@@ -32,6 +32,7 @@ public class WindZoneService : IWindZoneService
         {
             windZones = await _windZoneRepository
                 .GetAll()
+                .AsNoTracking()
                 .Select(x => new WindZoneDto(x.Id, x.Name))
                 .ToArrayAsync();
         }
@@ -70,6 +71,7 @@ public class WindZoneService : IWindZoneService
         {
             var windZone = await _windZoneRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (windZone==null)
@@ -105,6 +107,7 @@ public class WindZoneService : IWindZoneService
         {
             var windZone = await _windZoneRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Name == dto.Name);
 
             if (windZone!=null)

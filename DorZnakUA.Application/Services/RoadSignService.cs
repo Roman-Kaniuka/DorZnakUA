@@ -37,6 +37,7 @@ public class RoadSignService : IRoadSignService
         {
             roadSigns = await _roadSignRepository
                 .GetAll()
+                .AsNoTracking()
                 .Where(x => x.ProjectId == projectId)
                 .Select(x => new RoadSignDto(x.Id, x.Positioning, x.PlacementOnRoad, x.NumberOfRacks))
                 .ToArrayAsync();
@@ -76,6 +77,7 @@ public class RoadSignService : IRoadSignService
         {
             var roadSign = await _roadSignRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (roadSign==null)
@@ -112,6 +114,7 @@ public class RoadSignService : IRoadSignService
         {
             var project = await _projectRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == dto.ProjectId);
 
             var result = _projectValidator.ValidateOnNull(project);

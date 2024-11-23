@@ -35,6 +35,7 @@ public class MetalRackService : IMetalRackService
         {
             metalRacks = await _metalRackRepository
                 .GetAll()
+                .AsNoTracking()
                 .Select(x => new MetalRackDto(x.Id, x.Name, x.Height, x.Diameter))
                 .ToArrayAsync();
         }
@@ -74,6 +75,7 @@ public class MetalRackService : IMetalRackService
         {
             var metalRack = await _metalRackRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (metalRack==null)
@@ -112,6 +114,7 @@ public class MetalRackService : IMetalRackService
             var roadSign = await _roadSignRepository
                 .GetAll()
                 .Include(x => x.MetalRack)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == roadSignId);
 
             if (roadSign==null)
@@ -160,6 +163,7 @@ public class MetalRackService : IMetalRackService
         {
             var metalRacks = await _metalRackRepository
                 .GetAll()
+                .AsNoTracking()
                 .ToArrayAsync();
 
             var metalRackNames = metalRacks.Select(x => x.Name);

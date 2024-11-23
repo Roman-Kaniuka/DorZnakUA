@@ -35,6 +35,7 @@ public class ShieldService : IShieldService
         {
             var shields = await _shieldRepository
                 .GetAll()
+                .AsNoTracking()
                 .Select(x=> new ShieldDto(x.Id, x.Name, x.SizeType))
                 .ToArrayAsync();
 
@@ -73,6 +74,7 @@ public class ShieldService : IShieldService
         {
             var shield = await _shieldRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (shield==null)
@@ -108,6 +110,7 @@ public class ShieldService : IShieldService
         {
             var roadSign = await _roadSignRepository
                 .GetAll()
+                .AsNoTracking()
                 .Include(x=>x.Shields)
                 .FirstOrDefaultAsync(x => x.Id == roadSignId);
             
@@ -160,6 +163,7 @@ public class ShieldService : IShieldService
         {
             var shields = await _shieldRepository
                 .GetAll()
+                .AsNoTracking()
                 .ToArrayAsync();
 
             var newShield = new Shield()

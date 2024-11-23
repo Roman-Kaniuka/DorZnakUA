@@ -47,12 +47,12 @@
              <response code="200">Якщо нового користувача було зареєстровано</response>
              <response code="400">Якщо нового користувача не було зареєстровано</response>
         </member>
-        <member name="T:DorZnakUA.Api.Controller.MetalRackController">
+        <member name="T:DorZnakUA.Api.Controller.MetalRacksController">
             <summary>
             Сервіс для роботи зі стійками
             </summary>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.MetalRackController.GetAllMetalRacks">
+        <member name="M:DorZnakUA.Api.Controller.MetalRacksController.GetAllMetalRacks">
             <summary>
             Отримання всіх стійок
             </summary>
@@ -66,7 +66,7 @@
             <response code="200">Якщо металеву стійки було знайдено</response>
             <response code="400">Якщо металеву стійки не було знайдено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.MetalRackController.GetMetalRack(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.MetalRacksController.GetMetalRack(System.Int64)">
             <summary>
             Отрмання стійки по ідентифікатору
             </summary>
@@ -82,7 +82,7 @@
             <response code="200">Якщо металеву стійку було знайдено по id</response>
             <response code="400">Якщо металеву стійку не було знайдено по id</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.MetalRackController.GetRoadSignMetalRack(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.MetalRacksController.GetRoadSignMetalRack(System.Int64)">
             <summary>
             Тримання стійки знаку по його ідентифікатору
             </summary>
@@ -98,7 +98,7 @@
             <response code="200">Якщо металеву стійку знаку було знайдено по roadSignId</response>
             <response code="400">Якщо металеву стійку знаку не було знайдено по roadSignId</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.MetalRackController.CreateMetalRack(Domain.DorZnakUA.Dto.MetalRack.CreateMetalRackDto)">
+        <member name="M:DorZnakUA.Api.Controller.MetalRacksController.CreateMetalRack(Domain.DorZnakUA.Dto.MetalRack.CreateMetalRackDto)">
              <summary>
              Створення нової стійки
              </summary>
@@ -118,7 +118,7 @@
              <response code="200">Якщо металеву стійку було успішно створено</response>
              <response code="400">Якщо металеву стійку було не створено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.MetalRackController.DeleteMetalRack(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.MetalRacksController.DeleteMetalRack(System.Int64)">
             <summary>
             Видалення стійки за ідентифікатором
             </summary>
@@ -134,7 +134,7 @@
             <response code="200">Якщо металеву стійку було видалено</response>
             <response code="400">Якщо металеву стійку не було видалено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.MetalRackController.UpdateMetalRack(Domain.DorZnakUA.Dto.MetalRack.UpdateMetalRackDto)">
+        <member name="M:DorZnakUA.Api.Controller.MetalRacksController.UpdateMetalRack(Domain.DorZnakUA.Dto.MetalRack.UpdateMetalRackDto)">
             <summary>
             Оновлення стійки
             </summary>
@@ -155,12 +155,12 @@
             <response code="200">Якщо металеву стійку було оновлено</response>
             <response code="400">Якщо металеву стійку не було оновлено</response>
         </member>
-        <member name="T:DorZnakUA.Api.Controller.ProjectController">
+        <member name="T:DorZnakUA.Api.Controller.ProjectsController">
             <summary>
             Сервіс для роботи з проєктами
             </summary>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ProjectController.GetProject(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.ProjectsController.GetProject(System.Int64)">
             <summary>
             Отримання проєкта по id
             </summary>
@@ -176,7 +176,7 @@
             <response code="200">Якщо проєкт було знайдено по id</response>
             <response code="400">Якщо проєкт не було знайдено по id</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ProjectController.GetUserProjects(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.ProjectsController.GetUserProjects(System.Int64)">
             <summary>
             Отримання проєкта користувача за userId
             </summary>
@@ -192,7 +192,7 @@
             <response code="200">Якщо проєкт було знайдено по userId</response>
             <response code="400">Якщо проєкт не було знайдено по userId</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ProjectController.DeleteProject(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.ProjectsController.DeleteProject(System.Int64)">
             <summary>
             Видалення проєкту по id
             </summary>
@@ -208,7 +208,7 @@
             <response code="200">Якщо проєкт було видалено по вказаному id</response>
             <response code="400">Якщо проєкт не було видалено по вказаному id</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ProjectController.CreateProject(Domain.DorZnakUA.Dto.Project.CreateProjectDto)">
+        <member name="M:DorZnakUA.Api.Controller.ProjectsController.CreateProject(Domain.DorZnakUA.Dto.Project.CreateProjectDto)">
             <summary>
             Створення нового проєкта
             </summary>
@@ -226,7 +226,7 @@
             <response code="200">Якщо проєкт був створений</response>
             <response code="400">Якщо проєкт не був створений</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ProjectController.UpdateProject(Domain.DorZnakUA.Dto.Project.UpdateProjectDto)">
+        <member name="M:DorZnakUA.Api.Controller.ProjectsController.UpdateProject(Domain.DorZnakUA.Dto.Project.UpdateProjectDto)">
             <summary>
             Оновлення проєкту по id
             </summary>
@@ -244,12 +244,12 @@
             <response code="200">Якщо проєкт було оновлено по id</response>
             <response code="400">Якщо проєкт не було оновлено по id</response>
         </member>
-        <member name="T:DorZnakUA.Api.Controller.RoadSignController">
+        <member name="T:DorZnakUA.Api.Controller.RoadSignsController">
             <summary>
             Сервіс для роботи з дорожніми знаками
             </summary>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoadSignController.GetRoadSigns(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.RoadSignsController.GetRoadSigns(System.Int64)">
             <summary>
             Отримання всіх дорожніх знаків проєкта по projectId 
             </summary>
@@ -265,7 +265,7 @@
             <response code="200">Якщо дорожні знаки було знайдено</response>
             <response code="400">Якщо дорожні знаки було знайдено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoadSignController.GetRoadSign(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.RoadSignsController.GetRoadSign(System.Int64)">
             <summary>
             Отримання дорожнього знаку по id
             </summary>
@@ -281,7 +281,7 @@
             <response code="200">Якщо дорожній знак було знайдено</response>
             <response code="400">Якщо дорожній знак не було знайдено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoadSignController.CreateRoadSign(Domain.DorZnakUA.Dto.RoadSign.CreateRoadSignDto)">
+        <member name="M:DorZnakUA.Api.Controller.RoadSignsController.CreateRoadSign(Domain.DorZnakUA.Dto.RoadSign.CreateRoadSignDto)">
              <summary>
              Створення нового дорожнього знаку
              </summary>
@@ -300,7 +300,7 @@
              <response code="200">Якщо новий дорожній знак було створено</response>
              <response code="400">Якщо новий дорожній знак не було створено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoadSignController.DeleteRoadSign(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.RoadSignsController.DeleteRoadSign(System.Int64)">
             <summary>
             Видалення дорожнього знаку по id
             </summary>
@@ -316,7 +316,7 @@
             <response code="200">Якщо дорожній знак було видалено</response>
             <response code="400">Якщо дорожній знак не було видалено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoadSignController.UpdateRoadSign(Domain.DorZnakUA.Dto.RoadSign.UpdateRoadSignDto)">
+        <member name="M:DorZnakUA.Api.Controller.RoadSignsController.UpdateRoadSign(Domain.DorZnakUA.Dto.RoadSign.UpdateRoadSignDto)">
              <summary>
              Оновлення дорожнього знаку
              </summary>
@@ -335,12 +335,12 @@
              <response code="200">Якщо дорожній знак було оновлено</response>
              <response code="400">Якщо дорожній знак не було оновлено</response>
         </member>
-        <member name="T:DorZnakUA.Api.Controller.RoleController">
+        <member name="T:DorZnakUA.Api.Controller.RolesController">
             <summary>
             Сервіс для роботи з ролями
             </summary>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoleController.CreateRole(Domain.DorZnakUA.Dto.Role.CreateRoleDto)">
+        <member name="M:DorZnakUA.Api.Controller.RolesController.CreateRole(Domain.DorZnakUA.Dto.Role.CreateRoleDto)">
             <summary>
             Створення ролі
             </summary>
@@ -356,7 +356,7 @@
             <response code="200">Якщо роль було створено</response>
             <response code="400">Якщо роль не було створено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoleController.DeleteRole(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.RolesController.DeleteRole(System.Int64)">
             <summary>
             Видалення ролі по id
             </summary>
@@ -372,7 +372,7 @@
             <response code="200">Якщо роль було видалено</response>
             <response code="400">Якщо роль не було видалено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoleController.UpdateRole(Domain.DorZnakUA.Dto.Role.RoleDto)">
+        <member name="M:DorZnakUA.Api.Controller.RolesController.UpdateRole(Domain.DorZnakUA.Dto.Role.RoleDto)">
             <summary>
             Оновлення ролі
             </summary>
@@ -389,7 +389,7 @@
             <response code="200">Якщо роль було оновлено</response>
             <response code="400">Якщо роль не було оновлено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoleController.AddRoleForUser(Domain.DorZnakUA.Dto.UserRole.UserRoleDto)">
+        <member name="M:DorZnakUA.Api.Controller.RolesController.AddRoleForUser(Domain.DorZnakUA.Dto.UserRole.UserRoleDto)">
             <summary>
             Присвоєння ролі користувачу
             </summary>
@@ -406,7 +406,7 @@
             <response code="200">Якщо роль було присвоєно</response>
             <response code="400">Якщо роль не було присвоєно</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoleController.DeleteRoleForUser(Domain.DorZnakUA.Dto.UserRole.DeleteUserRoleDto)">
+        <member name="M:DorZnakUA.Api.Controller.RolesController.DeleteRoleForUser(Domain.DorZnakUA.Dto.UserRole.DeleteUserRoleDto)">
             <summary>
             Видалення ролі у користувача
             </summary>
@@ -417,13 +417,13 @@
                 DELETE
                 {
                     "login": "User #1",
-                    "roleName": "Admin"
+                    "roleId": "2"
                 }
             </remarks>
             <response code="200">Якщо роль було присвоєно</response>
             <response code="400">Якщо роль не було присвоєно</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.RoleController.UpdateRoleForUser(Domain.DorZnakUA.Dto.UserRole.UpdateUserRoleDto)">
+        <member name="M:DorZnakUA.Api.Controller.RolesController.UpdateRoleForUser(Domain.DorZnakUA.Dto.UserRole.UpdateUserRoleDto)">
             <summary>
             Оновлення ролі у користувача
             </summary>
@@ -434,19 +434,19 @@
                 PUT
                 {
                     "login": "User #1",
-                    "fromRoleName": "User"
-                    "toRoleName": "Admin"
+                    "fromRoleId": "2"
+                    "toRoleId": "1"
                 }
             </remarks>
             <response code="200">Якщо роль було присвоєно</response>
             <response code="400">Якщо роль не було присвоєно</response>
         </member>
-        <member name="T:DorZnakUA.Api.Controller.ShieldController">
+        <member name="T:DorZnakUA.Api.Controller.ShieldsController">
             <summary>
             Сервіс для роботи з щитками дорожніх знаків
             </summary>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ShieldController.GetAllShields">
+        <member name="M:DorZnakUA.Api.Controller.ShieldsController.GetAllShields">
             <summary>
             
             </summary>
@@ -460,7 +460,7 @@
             <response code="200">Якщо щиткі було успішно отримано</response>
             <response code="400">Якщо щиткі не було успішно отримано</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ShieldController.GetShieldById(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.ShieldsController.GetShieldById(System.Int64)">
             <summary>
             
             </summary>
@@ -476,7 +476,7 @@
             <response code="200">Якщо щит за вказаним id було знайдено</response>
             <response code="400">Якщо щит за вказаним id не було знайдено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ShieldController.GetRoadSignShields(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.ShieldsController.GetRoadSignShields(System.Int64)">
             <summary>
             
             </summary>
@@ -492,7 +492,7 @@
             <response code="200">Якщо щиткі знаку за вказаним roadSignId було знайдено</response>
             <response code="400">Якщо щиткі знаку за вказаним roadSignId не було знайдено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ShieldController.CreateShield(Domain.DorZnakUA.Dto.Shield.CreateShieldDto)">
+        <member name="M:DorZnakUA.Api.Controller.ShieldsController.CreateShield(Domain.DorZnakUA.Dto.Shield.CreateShieldDto)">
              <summary>
              
              </summary>
@@ -514,7 +514,7 @@
              <response code="200">Якщо щит було успішно створено</response>
              <response code="400">Якщо щит не було успішно створено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ShieldController.DeleteShield(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.ShieldsController.DeleteShield(System.Int64)">
              <summary>
              
              </summary>
@@ -530,7 +530,7 @@
              <response code="200">Якщо щит було успішно видалено</response>
              <response code="400">Якщо щит не було успішно видалено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.ShieldController.UpdateShield(Domain.DorZnakUA.Dto.Shield.UpdateShieldDto)">
+        <member name="M:DorZnakUA.Api.Controller.ShieldsController.UpdateShield(Domain.DorZnakUA.Dto.Shield.UpdateShieldDto)">
              <summary>
              
              </summary>
@@ -553,12 +553,12 @@
              <response code="200">Якщо щит було успішно оновлено</response>
              <response code="400">Якщо щит не було успішно оновлено</response>
         </member>
-        <member name="T:DorZnakUA.Api.Controller.TokenController">
+        <member name="T:DorZnakUA.Api.Controller.TokensController">
             <summary>
             Сервіс для роботи з токінами
             </summary>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.TokenController.RefreshToken(Domain.DorZnakUA.Dto.Token.TokenDto)">
+        <member name="M:DorZnakUA.Api.Controller.TokensController.RefreshToken(Domain.DorZnakUA.Dto.Token.TokenDto)">
             <summary>
             Запит на отримання RefreshToken
             </summary>
@@ -573,7 +573,7 @@
                 }
             </remarks>>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.WindZoneController.GetAllWindZones">
+        <member name="M:DorZnakUA.Api.Controller.WindZonesController.GetAllWindZones">
             <summary>
             Отримання всіх вітрових районів
             </summary>
@@ -587,7 +587,7 @@
             <response code="200">Якщо вітрові райони було знайдено</response>
             <response code="400">Якщо вітрові райони не було знайдено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.WindZoneController.GetWindZoneById(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.WindZonesController.GetWindZoneById(System.Int64)">
             <summary>
             Отримання вітрового району по ідентифікатору
             </summary>
@@ -603,7 +603,7 @@
             <response code="200">Якщо вітровий район було знайдено по id</response>
             <response code="400">Якщо вітровий район не було знайдено по id</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.WindZoneController.CreateWindZone(Domain.DorZnakUA.Dto.WindZone.CreateWindZoneDto)">
+        <member name="M:DorZnakUA.Api.Controller.WindZonesController.CreateWindZone(Domain.DorZnakUA.Dto.WindZone.CreateWindZoneDto)">
              <summary>
              Створення нового вітрового району
              </summary>
@@ -613,14 +613,14 @@
             
                  POST
                  {
-                     "name": "Тестова вітрова зона",
+                     "name": "Test wind zone",
                      "description": "Description for wind zone"
                  }
              </remarks>>
              <response code="200">Якщо вітровий район було успішно створено</response>
              <response code="400">Якщо вітровий район було не створено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.WindZoneController.DeleteWindZone(System.Int64)">
+        <member name="M:DorZnakUA.Api.Controller.WindZonesController.DeleteWindZone(System.Int64)">
             <summary>
             Видалення вітрового району за ідентифікатором
             </summary>
@@ -636,7 +636,7 @@
             <response code="200">Якщо вітровий район було видалено</response>
             <response code="400">Якщо вітровий район не було видалено</response>
         </member>
-        <member name="M:DorZnakUA.Api.Controller.WindZoneController.UpdateWindZone(Domain.DorZnakUA.Dto.WindZone.UpdateWindZoneDto)">
+        <member name="M:DorZnakUA.Api.Controller.WindZonesController.UpdateWindZone(Domain.DorZnakUA.Dto.WindZone.UpdateWindZoneDto)">
             <summary>
             Оновлення вітрового району
             </summary>
@@ -646,8 +646,9 @@
             
                 PUT
                 {
-                    "id": "Тестова вітрова зона",
-                    "description": "Тестовий опис для оновлення вітрової зони",
+                    "id": "1",
+                    "name": "Update test wind zone",
+                    "description": "Description for wind zone",
                 }
             </remarks>>
             <response code="200">Якщо вітровий район було оновлено</response>

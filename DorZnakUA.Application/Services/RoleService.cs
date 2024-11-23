@@ -45,6 +45,7 @@ public class RoleService : IRoleService
         {
             var role = await _roleRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Name == dto.Name);
             
             if (role!=null)
@@ -165,6 +166,7 @@ public class RoleService : IRoleService
         {
             var user = await _userRepository
                 .GetAll()
+                .AsNoTracking()
                 .Include(x=>x.Roles)
                 .FirstOrDefaultAsync(x => x.Login == dto.Login);
 
@@ -187,6 +189,7 @@ public class RoleService : IRoleService
             {
                 var role = await _roleRepository
                     .GetAll()
+                    .AsNoTracking()
                     .FirstOrDefaultAsync(x => x.Name == dto.RoleName);
 
                 if (role==null)
@@ -238,6 +241,7 @@ public class RoleService : IRoleService
             var user = await _userRepository
                 .GetAll()
                 .Include(x=>x.Roles)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Login == dto.Login);
 
             var result = _userValidator.ValidateOnNull(user);
@@ -295,6 +299,7 @@ public class RoleService : IRoleService
             var user = await _userRepository
                 .GetAll()
                 .Include(x=>x.Roles)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Login == dto.Login);
 
             var result = _userValidator.ValidateOnNull(user);
@@ -321,6 +326,7 @@ public class RoleService : IRoleService
 
             var newRoleForUser = await _roleRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == dto.ToRoleId);
 
             if (newRoleForUser==null)

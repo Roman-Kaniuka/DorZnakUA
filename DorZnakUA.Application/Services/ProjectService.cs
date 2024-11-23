@@ -7,7 +7,6 @@ using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Interfaces.Validations;
 using Domain.DorZnakUA.Result;
 using DorZnakUA.Application.Resources;
-using DorZnakUA.Application.Validations;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -40,6 +39,7 @@ public class ProjectService : IProjectService
         {
             projects = await _projectRepository
                 .GetAll()
+                .AsNoTracking()
                 .Where(x => x.UserId == userId)
                 .Select(x => new ProjectDto(x.Id, x.Name, x.Description, x.CreateAt.ToLongDateString()))
                 .ToArrayAsync();
@@ -117,10 +117,12 @@ public class ProjectService : IProjectService
         {
             var project = await _projectRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x=>x.Name==dto.Name);
         
             var user= await _userRepository
                 .GetAll()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x=>x.Id==dto.UserId);
 
             var result = _projectValidator.CreateValidator(project, user);
