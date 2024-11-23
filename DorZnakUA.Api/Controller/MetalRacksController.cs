@@ -13,11 +13,11 @@ namespace DorZnakUA.Api.Controller;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class MetalRackController : ControllerBase
+public class MetalRacksController : ControllerBase
 {
     private readonly IMetalRackService _metalRackService;
 
-    public MetalRackController(IMetalRackService metalRackService)
+    public MetalRacksController(IMetalRackService metalRackService)
     {
         _metalRackService = metalRackService;
     }

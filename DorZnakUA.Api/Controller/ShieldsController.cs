@@ -12,11 +12,11 @@ namespace DorZnakUA.Api.Controller;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class ShieldController : ControllerBase
+public class ShieldsController : ControllerBase
 {
     private readonly IShieldService _shieldService;
 
-    public ShieldController(IShieldService shieldService)
+    public ShieldsController(IShieldService shieldService)
     {
         _shieldService = shieldService;
     }

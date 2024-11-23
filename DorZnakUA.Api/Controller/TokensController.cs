@@ -10,11 +10,11 @@ namespace DorZnakUA.Api.Controller;
 /// </summary>
 [ApiController]
 [Route("refresh")]
-public class TokenController : ControllerBase
+public class TokensController : ControllerBase
 {
     private readonly ITokenService _tokenService;
 
-    public TokenController(ITokenService tokenService)
+    public TokensController(ITokenService tokenService)
     {
         _tokenService = tokenService;
     }

@@ -12,11 +12,11 @@ namespace DorZnakUA.Api.Controller;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class RoadSignController : ControllerBase
+public class RoadSignsController : ControllerBase
 {
     private readonly IRoadSignService _roadSignService;
 
-    public RoadSignController(IRoadSignService roadSignService)
+    public RoadSignsController(IRoadSignService roadSignService)
     {
         _roadSignService = roadSignService;
     }

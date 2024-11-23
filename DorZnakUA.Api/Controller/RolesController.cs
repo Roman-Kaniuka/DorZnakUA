@@ -16,11 +16,11 @@ namespace DorZnakUA.Api.Controller;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class RoleController : ControllerBase
+public class RolesController : ControllerBase
 {
     private readonly IRoleService _roleService;
 
-    public RoleController(IRoleService roleService)
+    public RolesController(IRoleService roleService)
     {
         _roleService = roleService;
     }

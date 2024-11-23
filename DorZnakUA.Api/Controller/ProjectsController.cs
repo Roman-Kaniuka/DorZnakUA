@@ -12,11 +12,11 @@ namespace DorZnakUA.Api.Controller;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class ProjectController : ControllerBase
+public class ProjectsController : ControllerBase
 {
     private readonly IProjectService _projectService;
 
-    public ProjectController(IProjectService projectService)
+    public ProjectsController(IProjectService projectService)
     {
         _projectService = projectService;
     }

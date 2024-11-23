@@ -9,11 +9,11 @@ namespace DorZnakUA.Api.Controller;
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class WindZoneController : ControllerBase
+public class WindZonesController : ControllerBase
 {
     private readonly IWindZoneService _windZoneService;
 
-    public WindZoneController(IWindZoneService windZoneService)
+    public WindZonesController(IWindZoneService windZoneService)
     {
         _windZoneService = windZoneService;
     }
