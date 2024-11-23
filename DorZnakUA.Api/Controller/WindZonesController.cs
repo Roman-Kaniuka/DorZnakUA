@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using Asp.Versioning;
 using Domain.DorZnakUA.Dto.WindZone;
 using Domain.DorZnakUA.Interfaces.Services;
@@ -90,6 +91,7 @@ public class WindZonesController : ControllerBase
     /// <response code="200">Якщо вітровий район було успішно створено</response>
     /// <response code="400">Якщо вітровий район було не створено</response>
     [HttpPost]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<WindZoneDto>>> CreateWindZone([FromBody] CreateWindZoneDto dto)
@@ -150,6 +152,7 @@ public class WindZonesController : ControllerBase
     /// <response code="200">Якщо вітровий район було оновлено</response>
     /// <response code="400">Якщо вітровий район не було оновлено</response>
     [HttpPut]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<WindZoneDto>>> UpdateWindZone([FromBody] UpdateWindZoneDto dto)

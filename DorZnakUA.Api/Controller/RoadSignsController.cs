@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using Asp.Versioning;
 using Domain.DorZnakUA.Dto.RoadSign;
 using Domain.DorZnakUA.Interfaces.Services;
@@ -97,6 +98,7 @@ public class RoadSignsController : ControllerBase
     /// <response code="200">Якщо новий дорожній знак було створено</response>
     /// <response code="400">Якщо новий дорожній знак не було створено</response>
     [HttpPost]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<RoadSignDto>>> CreateRoadSign([FromBody] CreateRoadSignDto dto)
@@ -158,6 +160,7 @@ public class RoadSignsController : ControllerBase
     /// <response code="200">Якщо дорожній знак було оновлено</response>
     /// <response code="400">Якщо дорожній знак не було оновлено</response>
     [HttpPut]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<RoadSignDto>>> UpdateRoadSign([FromBody] UpdateRoadSignDto dto)

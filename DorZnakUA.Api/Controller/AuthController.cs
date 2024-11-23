@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using Domain.DorZnakUA.Dto.Token;
 using Domain.DorZnakUA.Dto.User;
 using Domain.DorZnakUA.Interfaces.Services;
@@ -38,6 +39,7 @@ public class AuthController : ControllerBase
     /// <response code="200">Якщо нового користувача було зареєстровано</response>
     /// <response code="400">Якщо нового користувача не було зареєстровано</response>
     [HttpPost("register")]
+    [Consumes(MediaTypeNames.Application.Json)]
     public async Task<ActionResult<BaseResult<UserDto>>> Register([FromBody]RegisterUserDto dto)
     {
         var response = await _authService.RegisterAsync(dto);
@@ -68,6 +70,7 @@ public class AuthController : ControllerBase
     /// <response code="200">Якщо нового користувача було зареєстровано</response>
     /// <response code="400">Якщо нового користувача не було зареєстровано</response>
     [HttpPost("login")]
+    [Consumes(MediaTypeNames.Application.Json)]
     public async Task<ActionResult<BaseResult<TokenDto>>> Login([FromBody]LoginUserDto dto)
     {
         var response = await _authService.LoginAsync(dto);

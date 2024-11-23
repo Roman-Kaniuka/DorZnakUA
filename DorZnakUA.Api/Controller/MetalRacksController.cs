@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using Asp.Versioning;
 using Domain.DorZnakUA.Dto.MetalRack;
 using Domain.DorZnakUA.Interfaces.Services;
@@ -126,6 +127,7 @@ public class MetalRacksController : ControllerBase
     /// <response code="200">Якщо металеву стійку було успішно створено</response>
     /// <response code="400">Якщо металеву стійку було не створено</response>
     [HttpPost]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<MetalRackDto>>> CreateMetalRack([FromBody] CreateMetalRackDto dto)
@@ -189,6 +191,7 @@ public class MetalRacksController : ControllerBase
     /// <response code="200">Якщо металеву стійку було оновлено</response>
     /// <response code="400">Якщо металеву стійку не було оновлено</response>
     [HttpPut]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<MetalRackDto>>> UpdateMetalRack([FromBody] UpdateMetalRackDto dto)

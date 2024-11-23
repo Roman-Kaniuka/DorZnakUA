@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using Domain.DorZnakUA.Dto.Token;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
@@ -33,6 +34,7 @@ public class TokensController : ControllerBase
     ///     }
     /// </remarks>>
     [HttpPost]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<TokenDto>>> RefreshToken ([FromBody]TokenDto dto)

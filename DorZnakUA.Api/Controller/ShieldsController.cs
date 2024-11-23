@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using Asp.Versioning;
 using Domain.DorZnakUA.Dto.Shield;
 using Domain.DorZnakUA.Interfaces.Services;
@@ -125,6 +126,7 @@ public class ShieldsController : ControllerBase
     /// <response code="200">Якщо щит було успішно створено</response>
     /// <response code="400">Якщо щит не було успішно створено</response>
     [HttpPost]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<ShieldDto>>> CreateShield([FromBody] CreateShieldDto dto)
@@ -190,6 +192,7 @@ public class ShieldsController : ControllerBase
     /// <response code="200">Якщо щит було успішно оновлено</response>
     /// <response code="400">Якщо щит не було успішно оновлено</response>
     [HttpPut]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<ShieldDto>>> UpdateShield([FromBody] UpdateShieldDto dto)

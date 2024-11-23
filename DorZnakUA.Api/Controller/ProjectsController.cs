@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using Asp.Versioning;
 using Domain.DorZnakUA.Dto.Project;
 using Domain.DorZnakUA.Interfaces.Services;
@@ -123,6 +124,7 @@ public class ProjectsController : ControllerBase
     /// <response code="200">Якщо проєкт був створений</response>
     /// <response code="400">Якщо проєкт не був створений</response>
     [HttpPost]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<ProjectDto>>> CreateProject([FromBody]CreateProjectDto dto)
@@ -153,6 +155,7 @@ public class ProjectsController : ControllerBase
     /// <response code="200">Якщо проєкт було оновлено по id</response>
     /// <response code="400">Якщо проєкт не було оновлено по id</response>
     [HttpPut]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<ProjectDto>>> UpdateProject([FromBody]UpdateProjectDto dto)

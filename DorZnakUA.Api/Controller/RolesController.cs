@@ -12,7 +12,6 @@ namespace DorZnakUA.Api.Controller;
 /// <summary>
 /// Сервіс для роботи з ролями
 /// </summary>
-[Consumes(MediaTypeNames.Application.Json)]
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
@@ -40,6 +39,7 @@ public class RolesController : ControllerBase
     /// <response code="200">Якщо роль було створено</response>
     /// <response code="400">Якщо роль не було створено</response>
     [HttpPost]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<RoleDto>>> CreateRole([FromBody]CreateRoleDto dto)
@@ -99,6 +99,7 @@ public class RolesController : ControllerBase
     /// <response code="200">Якщо роль було оновлено</response>
     /// <response code="400">Якщо роль не було оновлено</response>
     [HttpPut]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<RoleDto>>> UpdateRole([FromBody]RoleDto dto)
@@ -129,6 +130,7 @@ public class RolesController : ControllerBase
     /// <response code="200">Якщо роль було присвоєно</response>
     /// <response code="400">Якщо роль не було присвоєно</response>
     [HttpPost("addRole")]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<Role>>> AddRoleForUser([FromBody]UserRoleDto dto)
@@ -157,6 +159,7 @@ public class RolesController : ControllerBase
     /// <response code="200">Якщо роль було присвоєно</response>
     /// <response code="400">Якщо роль не було присвоєно</response>
     [HttpDelete("deleteRole")]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<Role>>> DeleteRoleForUser([FromBody]DeleteUserRoleDto dto)
@@ -186,6 +189,7 @@ public class RolesController : ControllerBase
     /// <response code="200">Якщо роль було присвоєно</response>
     /// <response code="400">Якщо роль не було присвоєно</response>
     [HttpPut("updateRole")]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<Role>>> UpdateRoleForUser([FromBody]UpdateUserRoleDto dto)
