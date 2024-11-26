@@ -16,18 +16,20 @@ public class ProjectService : IProjectService
 {
     private readonly IBaseRepository<Project> _projectRepository;
     private readonly IBaseRepository<User> _userRepository;
+    private readonly IBaseRepository<WindZone> _windZineRepository;
     private readonly IProjectValidator _projectValidator;
     private readonly ILogger _logger;
     private readonly IMapper _mapper;
 
     public ProjectService(IBaseRepository<Project> projectRepository, IBaseRepository<User> userRepository, 
-        ILogger logger, IProjectValidator projectValidator, IMapper mapper)
+        ILogger logger, IProjectValidator projectValidator, IMapper mapper, IBaseRepository<WindZone> windZineRepository)
     {
         _projectRepository = projectRepository;
         _userRepository = userRepository;
         _logger = logger;
         _projectValidator = projectValidator;
         _mapper = mapper;
+        _windZineRepository = windZineRepository;
     }
 
     /// <inheritdoc/>
@@ -41,7 +43,7 @@ public class ProjectService : IProjectService
                 .GetAll()
                 .AsNoTracking()
                 .Where(x => x.UserId == userId)
-                .Select(x => new ProjectDto(x.Id, x.Name, x.Description, x.CreateAt.ToLongDateString()))
+                .Select(x => new ProjectDto(x.Id, x.Name, x.Description, x.WindZoneId, x.CreateAt.ToLongDateString()))
                 .ToArrayAsync();
         }
         catch (Exception e)
@@ -80,7 +82,7 @@ public class ProjectService : IProjectService
             var projectDto = _projectRepository
                 .GetAll()
                 .AsEnumerable()
-                .Select(x => new ProjectDto(x.Id, x.Name, x.Description, x.CreateAt.ToLongDateString()))
+                .Select(x => new ProjectDto(x.Id, x.Name, x.Description, x.WindZoneId, x.CreateAt.ToLongDateString()))
                 .FirstOrDefault(x => x.Id == id);
             
             if (projectDto==null)
@@ -135,11 +137,28 @@ public class ProjectService : IProjectService
                     ErroreCode = result.ErroreCode,
                 };
             }
+
+            var windZone = await _windZineRepository
+                .GetAll()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == dto.WindZoneId);
+
+            if (windZone==null)
+            {
+                _logger.Warning($"Вітровий район з id:{dto.WindZoneId} не знайдено.");
+                return new BaseResult<ProjectDto>()
+                {
+                    ErrorMessage = ErrorMessage.WindZoneNotFound,
+                    ErroreCode = (int) ErrorCodes.WindZoneNotFound,
+                };
+            }
+            
             project = new Project()
             {
                 Name = dto.Name,
                 Description = dto.Description,
                 UserId = dto.UserId,
+                WindZoneId = dto.WindZoneId
             };
             await _projectRepository.CreateAsync(project);
             await _projectRepository.SaveChangesAsync();
@@ -219,9 +238,25 @@ public class ProjectService : IProjectService
                     ErroreCode = (int) ErrorCodes.ProjectNotFound,
                 };
             }
+            
+            var windZone = await _windZineRepository
+                .GetAll()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == dto.WindZoneId);
+
+            if (windZone==null)
+            {
+                _logger.Warning($"Вітровий район з id:{dto.WindZoneId} не знайдено.");
+                return new BaseResult<ProjectDto>()
+                {
+                    ErrorMessage = ErrorMessage.WindZoneNotFound,
+                    ErroreCode = (int) ErrorCodes.WindZoneNotFound,
+                };
+            }
 
             project.Name = dto.Name;
             project.Description = dto.Description;
+            project.WindZoneId = dto.WindZoneId;
 
             var updateProject = _projectRepository.Update(project);
             await _projectRepository.SaveChangesAsync();

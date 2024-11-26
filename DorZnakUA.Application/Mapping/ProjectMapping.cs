@@ -11,6 +11,7 @@ public class ProjectMapping : Profile
         CreateMap<Project, ProjectDto>()
             .ForCtorParam(ctorParamName:"Id",m=>m.MapFrom(s =>s.Id))
             .ForCtorParam(ctorParamName:"Name",m=>m.MapFrom(s =>s.Name))
+            .ForCtorParam(ctorParamName:"WindZoneId", m=>m.MapFrom(s=>s.WindZoneId))
             .ForCtorParam(ctorParamName:"Description",m=>m.MapFrom(s =>s.Description))
             .ForCtorParam(ctorParamName:"DateCreated",m=>m.MapFrom(s =>s.CreateAt))
             .ReverseMap();

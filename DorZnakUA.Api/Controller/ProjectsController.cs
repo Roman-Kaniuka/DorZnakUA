@@ -118,7 +118,8 @@ public class ProjectsController : ControllerBase
     ///     {
     ///         "name": "Project #55",
     ///         "description": "Test project",
-    ///         "userId": "1"
+    ///         "userId": "1",
+    ///         "windzoneId": 2
     ///     }
     /// </remarks>
     /// <response code="200">Якщо проєкт був створений</response>
@@ -149,7 +150,8 @@ public class ProjectsController : ControllerBase
     ///     {
     ///         "id": "1",
     ///         "name": "Report #1",
-    ///         "description": "Test report"
+    ///         "description": "Test report",
+    ///         "windzoneId": 2
     ///     }
     /// </remarks>
     /// <response code="200">Якщо проєкт було оновлено по id</response>

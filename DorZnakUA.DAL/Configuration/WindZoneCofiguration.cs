@@ -15,7 +15,7 @@ public class WindZoneCofiguration : IEntityTypeConfiguration<WindZone>
         builder.HasMany<Project>(x => x.Projects)
             .WithOne(x => x.WindZone)
             .HasForeignKey(x => x.WindZoneId)
-            .HasForeignKey(x => x.Id);
+            .HasPrincipalKey(x => x.Id);
 
         builder.HasData(new List<WindZone>()
         {
