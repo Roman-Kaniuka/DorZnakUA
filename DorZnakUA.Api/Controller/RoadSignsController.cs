@@ -1,6 +1,7 @@
 using System.Net.Mime;
 using Asp.Versioning;
 using Domain.DorZnakUA.Dto.RoadSign;
+using Domain.DorZnakUA.Entity;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
 using Microsoft.AspNetCore.Mvc;
@@ -166,6 +167,37 @@ public class RoadSignsController : ControllerBase
     public async Task<ActionResult<BaseResult<RoadSignDto>>> UpdateRoadSign([FromBody] UpdateRoadSignDto dto)
     {
         var response = await _roadSignService.UpdateRoadSignAsync(dto);
+
+        if (response.IsSeccess)
+        {
+            return Ok(response);
+        }
+
+        return BadRequest(response);
+    }
+    
+    /// <summary>
+    /// Закріплює щит за знаком
+    /// </summary>
+    /// <param name="roadSignShield"></param>
+    /// <remarks>
+    /// Sample request to assign shield to sign:
+    ///
+    ///     POST
+    ///     {
+    ///         "roadSignId": 2,
+    ///         "shieldId": 1
+    ///     }
+    /// </remarks>>
+    /// <response code="200">Якщо дорожній знак було оновлено</response>
+    /// <response code="400">Якщо дорожній знак не було оновлено</response>
+    [HttpPost("assignShield")]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<BaseResult<RoadSignDto>>> AssignShieldToSign([FromBody]RoadSignShield roadSignShield)
+    {
+        var response = await _roadSignService.AssignShieldToSignAsync(roadSignShield);
 
         if (response.IsSeccess)
         {

@@ -1,4 +1,5 @@
 using Domain.DorZnakUA.Dto.RoadSign;
+using Domain.DorZnakUA.Entity;
 using Domain.DorZnakUA.Result;
 
 namespace Domain.DorZnakUA.Interfaces.Services;
@@ -42,4 +43,11 @@ public interface IRoadSignService
     /// <param name="dto"></param>
     /// <returns></returns>
     Task<BaseResult<RoadSignDto>> UpdateRoadSignAsync(UpdateRoadSignDto dto);
+
+    /// <summary>
+    /// Присвоює щит дорожньому знаку
+    /// </summary>
+    /// <param name="roadSignShield"></param>
+    /// <returns></returns>
+    Task<BaseResult<RoadSignDto>> AssignShieldToSignAsync(RoadSignShield roadSignShield);
 }

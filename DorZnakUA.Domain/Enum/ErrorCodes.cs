@@ -46,4 +46,7 @@ public enum ErrorCodes
     ShieldNotFound = 92,
     ShieldAlreadyExists = 93,
     
+    //RoadSignSield 101-110
+    RoadSignAlreadyHasThisShield = 101,
+    
 }

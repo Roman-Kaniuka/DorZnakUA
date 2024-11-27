@@ -16,18 +16,23 @@ public class RoadSignService : IRoadSignService
 {
     private readonly IBaseRepository<Project> _projectRepository;
     private readonly IBaseRepository<RoadSign> _roadSignRepository;
+    private readonly IBaseRepository<Shield> _shieldRepository;
+    private readonly IBaseRepository<RoadSignShield> _roadSignShieldRepository;
     private readonly IBaseValidator<Project> _projectValidator;
     private readonly ILogger _logger;
     private readonly IMapper _mapper;
 
     public RoadSignService(IBaseRepository<Project> projectRepository, IBaseRepository<RoadSign> roadSignRepository,
-        IMapper mapper, ILogger logger, IBaseValidator<Project> projectValidator)
+        IMapper mapper, ILogger logger, IBaseValidator<Project> projectValidator, IBaseRepository<Shield> shieldRepository,
+        IBaseRepository<RoadSignShield> roadSignShieldRepository)
     {
         _projectRepository = projectRepository;
         _roadSignRepository = roadSignRepository;
         _mapper = mapper;
         _logger = logger;
         _projectValidator = projectValidator;
+        _shieldRepository = shieldRepository;
+        _roadSignShieldRepository = roadSignShieldRepository;
     }
 
     public async Task<CollectionResult<RoadSignDto>> GetRoadSignsAsync(long projectId)
@@ -234,5 +239,74 @@ public class RoadSignService : IRoadSignService
             };
         }
         
+    }
+
+    public async Task<BaseResult<RoadSignDto>> AssignShieldToSignAsync(RoadSignShield roadSignShield)
+    {
+        try
+        {
+            var roadSign = await _roadSignRepository
+                .GetAll()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == roadSignShield.RoadSignId);
+
+            if (roadSign==null)
+            {
+                _logger.Warning($"Дорожній знак з id: {roadSignShield.RoadSignId} не знайдено");
+                return new BaseResult<RoadSignDto>()
+                {
+                    ErrorMessage = ErrorMessage.RoadSignNotFound,
+                    ErroreCode = (int)ErrorCodes.RoadSignNotFound,
+                };
+            }
+
+            var shield = await _shieldRepository
+                .GetAll()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == roadSignShield.ShieldId);
+            
+            if (shield==null)
+            {
+                _logger.Warning($"Щит з id:{roadSignShield.ShieldId} не знайдено");
+                return new BaseResult<RoadSignDto>()
+                {
+                    ErrorMessage = ErrorMessage.ShieldNotFound,
+                    ErroreCode = (int) ErrorCodes.ShieldNotFound,
+                };
+            }
+
+            var oldRoadSignShield = await _roadSignShieldRepository
+                .GetAll()
+                .Where(x => x.ShieldId == roadSignShield.ShieldId)
+                .FirstOrDefaultAsync(x => x.RoadSignId == roadSignShield.RoadSignId);
+
+            if (oldRoadSignShield!=null)
+            {
+                _logger.Warning($"Дорожній знак з id:{roadSignShield.RoadSignId} вже має щит з id:{roadSignShield.ShieldId}");
+                return new BaseResult<RoadSignDto>()
+                {
+                    ErrorMessage = ErrorMessage.RoadSignAlreadyHasThisShield,
+                    ErroreCode = (int) ErrorCodes.RoadSignAlreadyHasThisShield,
+                };
+            }
+            
+            await _roadSignShieldRepository.CreateAsync(roadSignShield);
+            await _roadSignShieldRepository.SaveChangesAsync();
+
+            return new BaseResult<RoadSignDto>()
+            {
+                Date = _mapper.Map<RoadSignDto>(roadSign)
+            };
+
+        }
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+            return new BaseResult<RoadSignDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int) ErrorCodes.InternalServerError
+            };
+        }
     }
 }

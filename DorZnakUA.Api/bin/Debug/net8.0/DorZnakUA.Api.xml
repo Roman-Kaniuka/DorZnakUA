@@ -337,6 +337,23 @@
              <response code="200">Якщо дорожній знак було оновлено</response>
              <response code="400">Якщо дорожній знак не було оновлено</response>
         </member>
+        <member name="M:DorZnakUA.Api.Controller.RoadSignsController.AssignShieldToSign(Domain.DorZnakUA.Entity.RoadSignShield)">
+             <summary>
+             Закріплює щит за знаком
+             </summary>
+             <param name="roadSignShield"></param>
+             <remarks>
+             Sample request to assign shield to sign:
+            
+                 POST
+                 {
+                     "roadSignId": 2,
+                     "shieldId": 1
+                 }
+             </remarks>>
+             <response code="200">Якщо дорожній знак було оновлено</response>
+             <response code="400">Якщо дорожній знак не було оновлено</response>
+        </member>
         <member name="T:DorZnakUA.Api.Controller.RolesController">
             <summary>
             Сервіс для роботи з ролями

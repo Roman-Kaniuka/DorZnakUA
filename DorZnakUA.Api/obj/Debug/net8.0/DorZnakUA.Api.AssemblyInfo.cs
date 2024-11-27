@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DorZnakUA.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+471b3601713efee724f580a88f93e47558f83be6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d00fff12faacacdc1ac857f1ae9ea704710c819e")]
 [assembly: System.Reflection.AssemblyProductAttribute("DorZnakUA.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DorZnakUA.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

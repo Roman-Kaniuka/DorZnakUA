@@ -97,4 +97,7 @@
     <data name="ShieldAlreadyExists" xml:space="preserve">
         <value>Щит вже існує</value>
     </data>
+    <data name="RoadSignAlreadyHasThisShield" xml:space="preserve">
+        <value>Дорожній знак вже має цей щит</value>
+    </data>
 </root>

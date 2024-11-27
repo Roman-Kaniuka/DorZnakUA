@@ -177,6 +177,15 @@ namespace DorZnakUA.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дорожній знак вже має цей щит.
+        /// </summary>
+        internal static string RoadSignAlreadyHasThisShield {
+            get {
+                return ResourceManager.GetString("RoadSignAlreadyHasThisShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Дорожній знак не знайдено.
         /// </summary>
         internal static string RoadSignNotFound {
