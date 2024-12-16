@@ -12,5 +12,5 @@ public interface IProjectValidator : IBaseValidator <Project>
     /// <param name="project"></param>
     /// <param name="user"></param>
     /// <returns></returns>
-    BaseResult CreateValidator(Project project, User user);
+    BaseResult CreateProjectValidator(Project project, User user);
 }

@@ -127,7 +127,7 @@ public class ProjectService : IProjectService
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x=>x.Id==dto.UserId);
 
-            var result = _projectValidator.CreateValidator(project, user);
+            var result = _projectValidator.CreateProjectValidator(project, user);
 
             if (!result.IsSeccess)
             {

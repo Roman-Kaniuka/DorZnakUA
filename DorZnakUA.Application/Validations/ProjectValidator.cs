@@ -21,7 +21,7 @@ public class ProjectValidator : IProjectValidator
         return new BaseResult();
     }
 
-    public BaseResult CreateValidator(Project? project, User? user)
+    public BaseResult CreateProjectValidator(Project? project, User? user)
     {
         if (project != null)
         {
