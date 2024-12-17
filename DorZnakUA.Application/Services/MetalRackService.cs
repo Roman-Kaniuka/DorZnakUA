@@ -306,8 +306,93 @@ public class MetalRackService : IMetalRackService
     }
 
     /// <inheritdoc/>
-    public Task<BaseResult<MetalRackDto>> CalculateRackHeightAsync(RoadSign roadSign)
+    public async Task<BaseResult<MetalRackDto>> CalculateRackHeightAsync(long roadSignId)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var roadSign = await _roadSignRepository
+                .GetAll()
+                .Include(x => x.Project)
+                .ThenInclude(x=>x.WindZone)
+                .Include(x => x.MetalRack)
+                .Include(x => x.Shields)
+                .FirstOrDefaultAsync(x => x.Id == roadSignId);
+            
+            if (roadSign==null)
+            {
+                _logger.Warning($"Знак з id:{roadSignId} не існує.");
+                return new BaseResult<MetalRackDto>()
+                {
+                    ErrorMessage = ErrorMessage.RoadSignNotFound,
+                    ErroreCode = (int) ErrorCodes.RoadSignNotFound,
+                };
+            }
+            
+            const double buryingSupportInGround = 1.5;
+            const double signToRoadHeight = 2;
+            double heightOfAllShields=0;
+           
+            foreach (var shield in roadSign.Shields)
+            {
+                heightOfAllShields += shield.Height;
+            }
+            
+            double totalHeight = buryingSupportInGround + signToRoadHeight + heightOfAllShields;
+            string metalRackName = $"СКМ{roadSign.Project.WindZone.Id}.{RoundToNearestHalf(totalHeight)*10}";
+            
+            var metalRack = await _metalRackRepository
+                .GetAll()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x=>x.Name == metalRackName);
+
+            if (metalRack==null)
+            {
+                _logger.Warning($"Стійка марки:{metalRackName} не була знайдена");
+                return new BaseResult<MetalRackDto>()
+                {
+                    ErrorMessage = ErrorMessage.MetalRackNotFound,
+                    ErroreCode = (int)ErrorCodes.MetalRackNotFound,
+                };
+            }
+
+            if (Equals(roadSign.MetalRack, metalRack))
+            {
+                _logger.Warning("Дорожній знак вже має цю стійку");
+                return new BaseResult<MetalRackDto>()
+                {
+                    ErrorMessage = ErrorMessage.MetalRackAlreadyExists,
+                    ErroreCode = (int)ErrorCodes.MetalRackAlreadyExists,
+                };
+            }
+
+            roadSign.MetalRack = metalRack;
+            
+            _roadSignRepository.Update(roadSign);
+            await _roadSignRepository.SaveChangesAsync();
+
+            return new BaseResult<MetalRackDto>()
+            {
+                Date = _mapper.Map<MetalRackDto>(metalRack)
+            };
+        }
+        
+        catch (Exception e)
+        {
+            _logger.Error(e, e.Message);
+
+            return new BaseResult<MetalRackDto>()
+            {
+                ErrorMessage = ErrorMessage.InternalServerError,
+                ErroreCode = (int)ErrorCodes.InternalServerError,
+            };
+        }
     }
+
+   
+    double RoundToNearestHalf(double height)
+    {
+        return Math.Round(height * 2, 0) / 2;
+    }
+    
+
 }

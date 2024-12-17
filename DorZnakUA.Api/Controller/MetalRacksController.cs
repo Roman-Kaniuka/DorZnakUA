@@ -36,7 +36,7 @@ public class MetalRacksController : ControllerBase
     /// <response code="200">Якщо металеву стійки було знайдено</response>
     /// <response code="400">Якщо металеву стійки не було знайдено</response>
     [HttpGet]
-    [Authorize(Roles = "Admin, Moderator")]
+    /*[Authorize(Roles = "Admin, Moderator")]*/
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<MetalRackDto>>> GetAllMetalRacks()
@@ -205,4 +205,35 @@ public class MetalRacksController : ControllerBase
 
         return BadRequest(response);
     }
+
+    /// <summary>
+    /// Підрахунок висоти стійки для дорожнього знаку
+    /// </summary>
+    /// <param name="roadSignId"></param>
+    /// <remarks>
+    /// Sample request to calculate a metal rack height:
+    /// 
+    ///     POST
+    ///     {
+    ///         "roadSignId": "3",   
+    ///     }
+    /// </remarks>>
+    /// <response code="200">Якщо металеву стійку було оновлено</response>
+    /// <response code="400">Якщо металеву стійку не було оновлено</response>
+    [HttpPost("calculate-metal-rack/{roadSignId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<BaseResult<MetalRackDto>>> CalculateRackHeight(long roadSignId)
+    {
+        var response = await _metalRackService.CalculateRackHeightAsync(roadSignId);
+
+        if (response.IsSeccess)
+        {
+            return Ok(response);
+        }
+
+        return BadRequest(response);
+
+    }
+    
 }

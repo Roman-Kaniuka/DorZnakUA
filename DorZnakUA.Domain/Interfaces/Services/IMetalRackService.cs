@@ -50,7 +50,7 @@ public interface IMetalRackService
     /// <summary>
     /// Обчислює висота та кількісь стійок для знаку
     /// </summary>
-    /// <param name="roadSign"></param>
+    /// <param name="roadSignId"></param>
     /// <returns></returns>
-    Task<BaseResult<MetalRackDto>> CalculateRackHeightAsync(RoadSign roadSign);
+    Task<BaseResult<MetalRackDto>> CalculateRackHeightAsync(long roadSignId);
 }

@@ -155,6 +155,22 @@
             <response code="200">Якщо металеву стійку було оновлено</response>
             <response code="400">Якщо металеву стійку не було оновлено</response>
         </member>
+        <member name="M:DorZnakUA.Api.Controller.MetalRacksController.CalculateRackHeight(System.Int64)">
+            <summary>
+            Підрахунок висоти стійки для дорожнього знаку
+            </summary>
+            <param name="roadSignId"></param>
+            <remarks>
+            Sample request to calculate a metal rack height:
+            
+                POST
+                {
+                    "roadSignId": "3",   
+                }
+            </remarks>>
+            <response code="200">Якщо металеву стійку було оновлено</response>
+            <response code="400">Якщо металеву стійку не було оновлено</response>
+        </member>
         <member name="T:DorZnakUA.Api.Controller.ProjectsController">
             <summary>
             Сервіс для роботи з проєктами
