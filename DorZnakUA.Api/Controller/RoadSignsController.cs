@@ -4,6 +4,7 @@ using Domain.DorZnakUA.Dto.RoadSign;
 using Domain.DorZnakUA.Entity;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
+using DorZnakUA.Application.Validations.FluentValidations.RoadSign;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DorZnakUA.Api.Controller;
@@ -104,6 +105,14 @@ public class RoadSignsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<RoadSignDto>>> CreateRoadSign([FromBody] CreateRoadSignDto dto)
     {
+        var valodator = new CreateRoadSignValidator();
+        var validationResult = await valodator.ValidateAsync(dto);
+
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.Errors);
+        }
+            
         var response = await _roadSignService.CreateRoadSignAsync(dto);
 
         if (response.IsSeccess)
@@ -166,6 +175,14 @@ public class RoadSignsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<RoadSignDto>>> UpdateRoadSign([FromBody] UpdateRoadSignDto dto)
     {
+        var valodator = new  UpdateRoadSignValidator();
+        var validationResult = await valodator.ValidateAsync(dto);
+
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.Errors);
+        }
+        
         var response = await _roadSignService.UpdateRoadSignAsync(dto);
 
         if (response.IsSeccess)

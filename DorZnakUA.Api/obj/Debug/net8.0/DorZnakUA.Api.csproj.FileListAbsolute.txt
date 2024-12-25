@@ -74,4 +74,3 @@ I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.IdentityM
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-I:\Р\C#\myProjecks\DorZnakUA\DorZnakUA.Api\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
