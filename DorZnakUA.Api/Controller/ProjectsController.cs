@@ -3,6 +3,7 @@ using Asp.Versioning;
 using Domain.DorZnakUA.Dto.Project;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
+using DorZnakUA.Application.Validations.FluentValidations.Project;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DorZnakUA.Api.Controller;
@@ -130,6 +131,14 @@ public class ProjectsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<ProjectDto>>> CreateProject([FromBody]CreateProjectDto dto)
     {
+        var validator = new CreateProjectValodator();
+        var validationResult = await validator.ValidateAsync(dto);
+
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.Errors);
+        }
+        
         var response = await _projectService.CreateProjectAsync(dto);
         if (response.IsSeccess)
         {
@@ -162,6 +171,14 @@ public class ProjectsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<ProjectDto>>> UpdateProject([FromBody]UpdateProjectDto dto)
     {
+        var validator = new UpdateProjectValodator();
+        var validationResult = await validator.ValidateAsync(dto);
+
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.Errors);
+        }
+        
         var responce = await _projectService.UpdateProjectAsync(dto);
         if (responce.IsSeccess)
         {
