@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "atnqvZbyH0/WqKgfs2s3qn5kui3wAbyWCd7dcMxm9zVbkDDGGsxkv2qjPKmIOPPHnEcYDbvJatiOw+K2zfkuWA==",
+  "dgSpecHash": "ve3ZL/kX83m5iqW6XnRzsbea5N9Oa7Xuqlqgue/JizDfOIvv5673IGrY1WZqO9rpKxOXxwpW7cudEHQYWR9enQ==",
   "success": true,
   "projectFilePath": "I:\\Р\\C#\\myProjecks\\DorZnakUA\\DorZnakUA.Api\\DorZnakUA.Api.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\kaniu\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\kaniu\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.2\\fluentvalidation.dependencyinjectionextensions.11.9.2.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.1\\microsoft.aspnetcore.authentication.jwtbearer.8.0.1.nupkg.sha512",
     "C:\\Users\\kaniu\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.1\\microsoft.aspnetcore.openapi.8.0.1.nupkg.sha512",

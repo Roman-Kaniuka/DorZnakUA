@@ -1,3 +1,4 @@
+using Domain.DorZnakUA.Dto.MetalRack;
 using Domain.DorZnakUA.Dto.Project;
 using Domain.DorZnakUA.Entity;
 using Domain.DorZnakUA.Interfaces.Services;
@@ -5,6 +6,7 @@ using Domain.DorZnakUA.Interfaces.Validations;
 using DorZnakUA.Application.Mapping;
 using DorZnakUA.Application.Services;
 using DorZnakUA.Application.Validations;
+using DorZnakUA.Application.Validations.FluentValidations.MetalRack;
 using DorZnakUA.Application.Validations.FluentValidations.Project;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +36,8 @@ public static class DependencyInjection
         services.AddScoped<IProjectValidator, ProjectValidator>();
         services.AddScoped<IValidator<CreateProjectDto>, CreateProjectValodator>();
         services.AddScoped<IValidator<UpdateProjectDto>, UpdateProjectValodator>();
+        services.AddScoped<IValidator<CreateMetalRackDto>,CreateMetalRackValidator>();
+        services.AddScoped<IValidator<UpdateMetalRackDto>, UpdateMEtalRackValidator>();
         services.AddScoped<IBaseValidator<User>, UserValidator>();
         services.AddScoped<IBaseValidator<Project>, ProjectValidator>();
     }

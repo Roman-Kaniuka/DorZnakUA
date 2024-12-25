@@ -3,6 +3,7 @@ using Asp.Versioning;
 using Domain.DorZnakUA.Dto.MetalRack;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
+using DorZnakUA.Application.Validations.FluentValidations.MetalRack;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -132,6 +133,14 @@ public class MetalRacksController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<MetalRackDto>>> CreateMetalRack([FromBody] CreateMetalRackDto dto)
     {
+        var validator = new CreateMetalRackValidator();
+        var validationResult = await validator.ValidateAsync(dto);
+
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.Errors);
+        }
+        
         var response = await _metalRackService.CreateMetalRackAsync(dto);
 
         if (response.IsSeccess)
@@ -196,6 +205,14 @@ public class MetalRacksController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<BaseResult<MetalRackDto>>> UpdateMetalRack([FromBody] UpdateMetalRackDto dto)
     {
+        var validator = new UpdateMEtalRackValidator();
+        var validationResult = await validator.ValidateAsync(dto);
+
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.Errors);
+        }
+        
         var response = await _metalRackService.UpdateMetalRackAsync(dto);
 
         if (response.IsSeccess)
