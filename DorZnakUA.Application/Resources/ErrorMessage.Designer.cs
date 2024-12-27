@@ -69,6 +69,15 @@ namespace DorZnakUA.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Помилка валідації вхідних даних.
+        /// </summary>
+        internal static string InvalidInputDataError {
+            get {
+                return ResourceManager.GetString("InvalidInputDataError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Не валідний токен.
         /// </summary>
         internal static string InvalidToken {

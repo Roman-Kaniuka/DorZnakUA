@@ -100,4 +100,7 @@
     <data name="RoadSignAlreadyHasThisShield" xml:space="preserve">
         <value>Дорожній знак вже має цей щит</value>
     </data>
+    <data name="InvalidInputDataError" xml:space="preserve">
+        <value>Помилка валідації вхідних даних</value>
+    </data>
 </root>

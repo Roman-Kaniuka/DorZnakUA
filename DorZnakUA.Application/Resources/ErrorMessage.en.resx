@@ -92,4 +92,7 @@
     <data name="RoadSignAlreadyHasThisShield" xml:space="preserve">
         <value>Road sign already has this shield</value>
     </data>
+    <data name="InvalidInputDataError" xml:space="preserve">
+        <value>Invalid input data error</value>
+    </data>
 </root>

@@ -1,6 +1,7 @@
 using Domain.DorZnakUA.Dto.MetalRack;
 using Domain.DorZnakUA.Dto.Project;
 using Domain.DorZnakUA.Dto.RoadSign;
+using Domain.DorZnakUA.Dto.Role;
 using Domain.DorZnakUA.Entity;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Interfaces.Validations;
@@ -10,6 +11,7 @@ using DorZnakUA.Application.Validations;
 using DorZnakUA.Application.Validations.FluentValidations.MetalRack;
 using DorZnakUA.Application.Validations.FluentValidations.Project;
 using DorZnakUA.Application.Validations.FluentValidations.RoadSign;
+using DorZnakUA.Application.Validations.FluentValidations.Role;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -42,6 +44,8 @@ public static class DependencyInjection
         services.AddScoped<IValidator<UpdateMetalRackDto>, UpdateMEtalRackValidator>();
         services.AddScoped<IValidator<CreateRoadSignDto>, CreateRoadSignValidator>();
         services.AddScoped<IValidator<UpdateRoadSignDto>, UpdateRoadSignValidator>();
+        services.AddScoped<IValidator<CreateRoleDto>, CreateRoleValidator>();
+        services.AddScoped<IValidator<RoleDto>, UpdateRoleValitadot>();
         services.AddScoped<IBaseValidator<User>, UserValidator>();
         services.AddScoped<IBaseValidator<Project>, ProjectValidator>();
     }

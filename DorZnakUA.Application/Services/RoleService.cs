@@ -9,6 +9,7 @@ using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Interfaces.Validations;
 using Domain.DorZnakUA.Result;
 using DorZnakUA.Application.Resources;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -21,13 +22,15 @@ public class RoleService : IRoleService
     private readonly IBaseRepository<Role> _roleRepository;
     private readonly IBaseRepository<UserRole> _userRoleRepository;
     private readonly IBaseValidator<User> _userValidator;
+    private readonly IValidator<CreateRoleDto> _createRoleValidator;
+    private readonly IValidator<RoleDto> _updateRoleValidator;
     private readonly ILogger _logger;
     private readonly IMapper _mapper;
 
 
     public RoleService(IBaseRepository<User> userRepository, IBaseRepository<Role> roleRepository, 
         IBaseRepository<UserRole> userRoleRepository, ILogger logger, IMapper mapper, IBaseValidator<User> userValidator, 
-        IUnitOfWork unitOfWork)
+        IUnitOfWork unitOfWork, IValidator<CreateRoleDto> createRoleValidator, IValidator<RoleDto> updateRoleValidator)
     {
         _userRepository = userRepository;
         _roleRepository = roleRepository;
@@ -36,6 +39,8 @@ public class RoleService : IRoleService
         _mapper = mapper;
         _userValidator = userValidator;
         _unitOfWork = unitOfWork;
+        _createRoleValidator = createRoleValidator;
+        _updateRoleValidator = updateRoleValidator;
     }
 
     /// <inheritdoc/>
@@ -43,6 +48,18 @@ public class RoleService : IRoleService
     {
         try
         {
+            var validationResult = await _createRoleValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<RoleDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int) ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var role = await _roleRepository
                 .GetAll()
                 .AsNoTracking()
@@ -125,6 +142,18 @@ public class RoleService : IRoleService
     {
         try
         {
+            var validationResult = await _updateRoleValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<RoleDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int)ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var role = await _roleRepository
                 .GetAll()
                 .FirstOrDefaultAsync(x => x.Id == dto.Id);
