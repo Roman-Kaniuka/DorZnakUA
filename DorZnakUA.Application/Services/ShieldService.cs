@@ -1,4 +1,3 @@
-using System.Reflection.PortableExecutable;
 using AutoMapper;
 using Domain.DorZnakUA.Dto.Shield;
 using Domain.DorZnakUA.Entity;
@@ -7,6 +6,7 @@ using Domain.DorZnakUA.Interfaces.Repositories;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
 using DorZnakUA.Application.Resources;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -14,18 +14,22 @@ namespace DorZnakUA.Application.Services;
 
 public class ShieldService : IShieldService
 {
-    private readonly ILogger _logger;
-    private readonly IMapper _mapper;
     private readonly IBaseRepository<Shield> _shieldRepository;
     private readonly IBaseRepository<RoadSign> _roadSignRepository;
+    private readonly IValidator<CreateShieldDto> _createShieldValidator;
+    private readonly IValidator<UpdateShieldDto> _updateShieldValidator;
+    private readonly ILogger _logger;
+    private readonly IMapper _mapper;
 
     public ShieldService(ILogger logger, IBaseRepository<Shield> shieldRepository, IMapper mapper,
-        IBaseRepository<RoadSign> roadSignRepository)
+        IBaseRepository<RoadSign> roadSignRepository, IValidator<UpdateShieldDto> updateShieldValidator, IValidator<CreateShieldDto> createShieldValidator)
     {
         _logger = logger;
         _shieldRepository = shieldRepository;
         _mapper = mapper;
         _roadSignRepository = roadSignRepository;
+        _updateShieldValidator = updateShieldValidator;
+        _createShieldValidator = createShieldValidator;
     }
 
     /// <inheritdoc/>
@@ -161,6 +165,18 @@ public class ShieldService : IShieldService
     {
         try
         {
+            var validationResult = await _createShieldValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<ShieldDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int)ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var shields = await _shieldRepository
                 .GetAll()
                 .AsNoTracking()
@@ -254,6 +270,18 @@ public class ShieldService : IShieldService
     {
         try
         {
+            var validationResult = await _updateShieldValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<ShieldDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int)ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var shield = await _shieldRepository
                 .GetAll()
                 .FirstOrDefaultAsync(x => x.Id == dto.Id);
