@@ -6,6 +6,7 @@ using Domain.DorZnakUA.Interfaces.Repositories;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
 using DorZnakUA.Application.Resources;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -15,15 +16,20 @@ public class MetalRackService : IMetalRackService
 {
     private readonly IBaseRepository<MetalRack> _metalRackRepository;
     private readonly IBaseRepository<RoadSign> _roadSignRepository;
+    private readonly IValidator<CreateMetalRackDto> _createMetalRackValidator;
+    private readonly IValidator<UpdateMetalRackDto> _updateMetalRackValidator;
     private readonly ILogger _logger;
     private readonly IMapper _mapper;
 
-    public MetalRackService(ILogger logger, IBaseRepository<MetalRack> metalRackRepository, IMapper mapper, IBaseRepository<RoadSign> roadSignRepository)
+    public MetalRackService(ILogger logger, IBaseRepository<MetalRack> metalRackRepository, IMapper mapper, IBaseRepository<RoadSign> roadSignRepository,
+        IValidator<UpdateMetalRackDto> updateMetalRackValidator, IValidator<CreateMetalRackDto> createMetalRackValidator)
     {
         _logger = logger;
         _metalRackRepository = metalRackRepository;
         _mapper = mapper;
         _roadSignRepository = roadSignRepository;
+        _updateMetalRackValidator = updateMetalRackValidator;
+        _createMetalRackValidator = createMetalRackValidator;
     }
 
     /// <inheritdoc/>
@@ -161,6 +167,18 @@ public class MetalRackService : IMetalRackService
     {
         try
         {
+            var validationResult = await _createMetalRackValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<MetalRackDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int)ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var metalRacks = await _metalRackRepository
                 .GetAll()
                 .AsNoTracking()
@@ -265,6 +283,18 @@ public class MetalRackService : IMetalRackService
     {
         try
         {
+            var validationResult = await _updateMetalRackValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<MetalRackDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int)ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var metalRack = await _metalRackRepository
                 .GetAll()
                 .FirstOrDefaultAsync(x => x.Id == dto.Id);
