@@ -7,6 +7,7 @@ using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Interfaces.Validations;
 using Domain.DorZnakUA.Result;
 using DorZnakUA.Application.Resources;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -18,11 +19,14 @@ public class ProjectService : IProjectService
     private readonly IBaseRepository<User> _userRepository;
     private readonly IBaseRepository<WindZone> _windZineRepository;
     private readonly IProjectValidator _projectValidator;
+    private readonly IValidator<CreateProjectDto> _createProjectValidator;
+    private readonly IValidator<UpdateProjectDto> _updateProjectValidator;
     private readonly ILogger _logger;
     private readonly IMapper _mapper;
 
     public ProjectService(IBaseRepository<Project> projectRepository, IBaseRepository<User> userRepository, 
-        ILogger logger, IProjectValidator projectValidator, IMapper mapper, IBaseRepository<WindZone> windZineRepository)
+        ILogger logger, IProjectValidator projectValidator, IMapper mapper, IBaseRepository<WindZone> windZineRepository, IValidator<UpdateProjectDto> updateProjectValidator, 
+        IValidator<CreateProjectDto> createProjectValidator)
     {
         _projectRepository = projectRepository;
         _userRepository = userRepository;
@@ -30,6 +34,8 @@ public class ProjectService : IProjectService
         _projectValidator = projectValidator;
         _mapper = mapper;
         _windZineRepository = windZineRepository;
+        _updateProjectValidator = updateProjectValidator;
+        _createProjectValidator = createProjectValidator;
     }
 
     /// <inheritdoc/>
@@ -117,6 +123,18 @@ public class ProjectService : IProjectService
     {
         try
         {
+            var validationResult = await _createProjectValidator.ValidateAsync(dto);
+            
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<ProjectDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int)ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var project = await _projectRepository
                 .GetAll()
                 .AsNoTracking()
@@ -224,6 +242,18 @@ public class ProjectService : IProjectService
     {
         try
         {
+            var validationResult = await _updateProjectValidator.ValidateAsync(dto);
+            
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<ProjectDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int)ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var project = await _projectRepository
                 .GetAll()
                 .FirstOrDefaultAsync(x => x.Id == dto.Id);
