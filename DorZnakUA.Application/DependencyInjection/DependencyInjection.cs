@@ -3,6 +3,7 @@ using Domain.DorZnakUA.Dto.Project;
 using Domain.DorZnakUA.Dto.RoadSign;
 using Domain.DorZnakUA.Dto.Role;
 using Domain.DorZnakUA.Dto.Shield;
+using Domain.DorZnakUA.Dto.WindZone;
 using Domain.DorZnakUA.Entity;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Interfaces.Validations;
@@ -14,6 +15,7 @@ using DorZnakUA.Application.Validations.FluentValidations.Project;
 using DorZnakUA.Application.Validations.FluentValidations.RoadSign;
 using DorZnakUA.Application.Validations.FluentValidations.Role;
 using DorZnakUA.Application.Validations.FluentValidations.Shield;
+using DorZnakUA.Application.Validations.FluentValidations.WindZone;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -50,6 +52,8 @@ public static class DependencyInjection
         services.AddScoped<IValidator<RoleDto>, UpdateRoleValitadot>();
         services.AddScoped<IValidator<CreateShieldDto>, CreateShieldValidator>();
         services.AddScoped<IValidator<UpdateShieldDto>, UpdateShieldValidator>();
+        services.AddScoped<IValidator<CreateWindZoneDto>, CreateWindZoneValidator>();
+        services.AddScoped<IValidator<UpdateWindZoneDto>, UpdateWindZoneValidator>();
         services.AddScoped<IBaseValidator<User>, UserValidator>();
         services.AddScoped<IBaseValidator<Project>, ProjectValidator>();
     }

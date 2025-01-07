@@ -6,6 +6,8 @@ using Domain.DorZnakUA.Interfaces.Repositories;
 using Domain.DorZnakUA.Interfaces.Services;
 using Domain.DorZnakUA.Result;
 using DorZnakUA.Application.Resources;
+using DorZnakUA.Application.Validations.FluentValidations.WindZone;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -14,13 +16,18 @@ namespace DorZnakUA.Application.Services;
 public class WindZoneService : IWindZoneService
 {
     private readonly IBaseRepository<WindZone> _windZoneRepository;
+    private readonly IValidator<CreateWindZoneDto> _createWindZoneValidator;
+    private readonly IValidator<UpdateWindZoneDto> _updateWindZoneValidator;
     private readonly ILogger _logger;
     private readonly IMapper _mapper;
-    public WindZoneService(IBaseRepository<WindZone> windZoneRepository, ILogger logger, IMapper mapper)
+    public WindZoneService(IBaseRepository<WindZone> windZoneRepository, ILogger logger, IMapper mapper, IValidator<CreateWindZoneDto> createWindZoneValidator, 
+        IValidator<UpdateWindZoneDto> updateWindZoneValidator)
     {
         _windZoneRepository = windZoneRepository;
         _logger = logger;
         _mapper = mapper;
+        _createWindZoneValidator = createWindZoneValidator;
+        _updateWindZoneValidator = updateWindZoneValidator;
     }
 
     /// <inheritdoc/>>
@@ -105,6 +112,18 @@ public class WindZoneService : IWindZoneService
     {
         try
         {
+            var validationResult = await _createWindZoneValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<WindZoneDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int)ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var windZone = await _windZoneRepository
                 .GetAll()
                 .AsNoTracking()
@@ -190,6 +209,18 @@ public class WindZoneService : IWindZoneService
     {
         try
         {
+            var validationResult = await _updateWindZoneValidator.ValidateAsync(dto);
+
+            if (!validationResult.IsValid)
+            {
+                _logger.Warning($"{validationResult}");
+                return new BaseResult<WindZoneDto>()
+                {
+                    ErrorMessage = ErrorMessage.InvalidInputDataError,
+                    ErroreCode = (int)ErrorCodes.InvalidInputDataError,
+                };
+            }
+            
             var windZone = await _windZoneRepository
                 .GetAll()
                 .FirstOrDefaultAsync(x => x.Id == dto.Id);
