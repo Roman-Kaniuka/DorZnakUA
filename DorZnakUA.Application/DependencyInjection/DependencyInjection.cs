@@ -42,14 +42,14 @@ public static class DependencyInjection
         services.AddScoped<IShieldService, ShieldService>();
 
         services.AddScoped<IProjectValidator, ProjectValidator>();
-        services.AddScoped<IValidator<CreateProjectDto>, CreateProjectValodator>();
-        services.AddScoped<IValidator<UpdateProjectDto>, UpdateProjectValodator>();
+        services.AddScoped<IValidator<CreateProjectDto>, CreateProjectValidator>();
+        services.AddScoped<IValidator<UpdateProjectDto>, UpdateProjectValidator>();
         services.AddScoped<IValidator<CreateMetalRackDto>,CreateMetalRackValidator>();
-        services.AddScoped<IValidator<UpdateMetalRackDto>, UpdateMEtalRackValidator>();
+        services.AddScoped<IValidator<UpdateMetalRackDto>, UpdateMetalRackValidator>();
         services.AddScoped<IValidator<CreateRoadSignDto>, CreateRoadSignValidator>();
         services.AddScoped<IValidator<UpdateRoadSignDto>, UpdateRoadSignValidator>();
         services.AddScoped<IValidator<CreateRoleDto>, CreateRoleValidator>();
-        services.AddScoped<IValidator<RoleDto>, UpdateRoleValitadot>();
+        services.AddScoped<IValidator<RoleDto>, UpdateRoleValidator>();
         services.AddScoped<IValidator<CreateShieldDto>, CreateShieldValidator>();
         services.AddScoped<IValidator<UpdateShieldDto>, UpdateShieldValidator>();
         services.AddScoped<IValidator<CreateWindZoneDto>, CreateWindZoneValidator>();

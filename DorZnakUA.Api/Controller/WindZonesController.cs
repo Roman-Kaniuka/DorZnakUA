@@ -113,7 +113,7 @@ public class WindZonesController : ControllerBase
     /// <remarks>
     /// Sample request to delete a wind zone by id:
     /// 
-    ///     DELTE
+    ///     DELETE
     ///     {
     ///         "id": "1"
     ///     }

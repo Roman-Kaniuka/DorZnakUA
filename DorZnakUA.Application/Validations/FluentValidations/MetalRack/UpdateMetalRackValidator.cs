@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace DorZnakUA.Application.Validations.FluentValidations.MetalRack;
 
-public class UpdateMEtalRackValidator : AbstractValidator<UpdateMetalRackDto>
+public class UpdateMetalRackValidator : AbstractValidator<UpdateMetalRackDto>
 {
-    public UpdateMEtalRackValidator()
+    public UpdateMetalRackValidator()
     {
         RuleFor(x => x.Id).NotEmpty();
         RuleFor(x => x.Name).NotEmpty().MaximumLength(50);
