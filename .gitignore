@@ -1,6 +1,8 @@
 ###################
 # compiled source #
 ###################
+*.user
+*.DotSettings.user
 *.com
 *.class
 *.dll
@@ -25,6 +27,7 @@ _UpgradeReport_Files/
 ###############
 bin/
 obj/
+.vs/
 TestResults/
 ###################
 # Web publish log #
